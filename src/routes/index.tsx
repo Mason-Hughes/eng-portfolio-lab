@@ -1,9 +1,7 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import heroBg from "@/assets/hero-bg.jpg";
-import project1 from "@/assets/project-1.jpg";
-import project2 from "@/assets/project-2.jpg";
-import project3 from "@/assets/project-3.jpg";
 import portrait from "@/assets/portrait.jpg";
+import { projects, type Project } from "@/lib/projects";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -28,48 +26,6 @@ export const Route = createFileRoute("/")({
 const NAME = "Engineer";
 const TAGLINE = "Mechanical Design Engineer";
 
-type Project = {
-  index: string;
-  title: string;
-  role: string;
-  year: string;
-  summary: string;
-  image: string;
-  tags: string[];
-};
-
-const projects: Project[] = [
-  {
-    index: "01",
-    title: "Six-Axis Pick & Place Cell",
-    role: "Lead Mechanical Designer",
-    year: "2024",
-    summary:
-      "End-to-end mechanical design of a compact 6-DOF robotic cell for high-mix electronics assembly — from kinematic study to DFM-ready CAD and supplier handoff.",
-    image: project1,
-    tags: ["Robotics", "SolidWorks", "FEA", "DFM"],
-  },
-  {
-    index: "02",
-    title: "Precision Linear Actuator",
-    role: "Mechanical Engineer",
-    year: "2023",
-    summary:
-      "Compact ballscrew-driven actuator with sub-10µm repeatability for inline metrology. Designed the housing, preload stack, and thermal compensation strategy.",
-    image: project2,
-    tags: ["Precision", "Tolerance Stack", "Machining"],
-  },
-  {
-    index: "03",
-    title: "Modular Conveyor Platform",
-    role: "Mechanical Design",
-    year: "2023",
-    summary:
-      "Reconfigurable belt module for industrial sortation. Standardized frame extrusions, quick-swap drive heads, and a snap-fit guarding system used across three product lines.",
-    image: project3,
-    tags: ["Automation", "Sheet Metal", "Modularity"],
-  },
-];
 
 const capabilities = [
   { label: "CAD", value: "SolidWorks · Fusion 360 · NX" },
@@ -240,41 +196,52 @@ function Projects() {
 
 function ProjectRow({ project, flipped }: { project: Project; flipped: boolean }) {
   return (
-    <article className="grid md:grid-cols-12 gap-8 md:gap-12 items-center">
-      <div
-        className={`md:col-span-7 ${flipped ? "md:order-2" : ""} group relative overflow-hidden rounded-sm border border-border`}
-      >
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/0 to-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700 z-10 pointer-events-none" />
-        <img
-          src={project.image}
-          alt={project.title}
-          width={1400}
-          height={1050}
-          loading="lazy"
-          className="w-full h-auto object-cover transition-transform duration-1000 group-hover:scale-[1.03]"
-        />
-      </div>
-      <div className={`md:col-span-5 ${flipped ? "md:order-1 md:pr-8" : "md:pl-4"}`}>
-        <div className="flex items-baseline gap-4 mb-6">
-          <span className="font-mono text-xs text-primary">{project.index}</span>
-          <span className="hairline flex-1" />
-          <span className="font-mono text-xs text-muted-foreground">{project.year}</span>
+    <Link
+      to="/work/$slug"
+      params={{ slug: project.slug }}
+      className="block group"
+    >
+      <article className="grid md:grid-cols-12 gap-8 md:gap-12 items-center">
+        <div
+          className={`md:col-span-7 ${flipped ? "md:order-2" : ""} relative overflow-hidden rounded-sm border border-border`}
+        >
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/0 to-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700 z-10 pointer-events-none" />
+          <img
+            src={project.cover}
+            alt={project.title}
+            width={1400}
+            height={1050}
+            loading="lazy"
+            className="w-full h-auto object-cover transition-transform duration-1000 group-hover:scale-[1.03]"
+          />
         </div>
-        <h3 className="display text-3xl md:text-4xl mb-4">{project.title}</h3>
-        <p className="eyebrow mb-6">{project.role}</p>
-        <p className="text-muted-foreground leading-relaxed mb-8">{project.summary}</p>
-        <ul className="flex flex-wrap gap-x-3 gap-y-2">
-          {project.tags.map((t) => (
-            <li
-              key={t}
-              className="font-mono text-[10px] tracking-[0.18em] uppercase text-muted-foreground border border-border px-3 py-1.5"
-            >
-              {t}
-            </li>
-          ))}
-        </ul>
-      </div>
-    </article>
+        <div className={`md:col-span-5 ${flipped ? "md:order-1 md:pr-8" : "md:pl-4"}`}>
+          <div className="flex items-baseline gap-4 mb-6">
+            <span className="font-mono text-xs text-primary">{project.index}</span>
+            <span className="hairline flex-1" />
+            <span className="font-mono text-xs text-muted-foreground">{project.year}</span>
+          </div>
+          <h3 className="display text-3xl md:text-4xl mb-4 transition-colors group-hover:text-primary">
+            {project.title}
+          </h3>
+          <p className="eyebrow mb-6">{project.role}</p>
+          <p className="text-muted-foreground leading-relaxed mb-8">{project.summary}</p>
+          <ul className="flex flex-wrap gap-x-3 gap-y-2 mb-8">
+            {project.tags.map((t) => (
+              <li
+                key={t}
+                className="font-mono text-[10px] tracking-[0.18em] uppercase text-muted-foreground border border-border px-3 py-1.5"
+              >
+                {t}
+              </li>
+            ))}
+          </ul>
+          <span className="inline-flex items-center gap-3 nav-link text-foreground group-hover:text-primary">
+            View Case Study <span aria-hidden>→</span>
+          </span>
+        </div>
+      </article>
+    </Link>
   );
 }
 
