@@ -1,7 +1,12 @@
-import gosselinHero from "@/assets/gosselin-hero.jpg";
-import gosselinDetail1 from "@/assets/gosselin-detail-1.jpg";
-import gosselinDetail2 from "@/assets/gosselin-detail-2.jpg";
-import gosselinDetail3 from "@/assets/gosselin-detail-3.jpg";
+import gosselinAssemblyClean from "@/assets/gosselin/img-07.jpg";
+import gosselinAssemblyAnnotated from "@/assets/gosselin/img-05.jpg";
+import gosselinUniversal from "@/assets/gosselin/img-01.jpg";
+import gosselinUniversalCallout from "@/assets/gosselin/img-02.jpg";
+import gosselinSpherical from "@/assets/gosselin/img-03.jpg";
+import gosselinRevolute from "@/assets/gosselin/img-04.jpg";
+import gosselinBase from "@/assets/gosselin/img-08.jpg";
+import gosselinBaseDrawing from "@/assets/gosselin/img-09.jpg";
+import gosselinWorkspace from "@/assets/gosselin/img-10.jpg";
 import project2 from "@/assets/project-2.jpg";
 import project3 from "@/assets/project-3.jpg";
 
@@ -36,7 +41,7 @@ export const projects: Project[] = [
     client: "UBC Advanced Robotics Laboratory",
     summary:
       "Physical prototype of a novel 9-DOF parallel robot — a redundant evolution of the Stewart platform designed to avoid kinematic singularities across a vastly larger workspace.",
-    cover: gosselinHero,
+    cover: gosselinAssemblyClean,
     tags: ["Parallel Robotics", "SolidWorks", "MATLAB", "Mechanism Design"],
     problem:
       "Traditional Stewart platforms hit kinematic singularities long before reaching the orientations needed for many manipulation tasks. The Advanced Robotics Lab at UBC needed the first physical realization of a Gosselin platform — a kinematic architecture proposed theoretically in 2016 that adds three redundant linear actuators to dramatically expand the singularity-free workspace. My team was tasked with taking the math off the page and turning it into a functioning, payload-carrying mechanism.",
@@ -64,10 +69,14 @@ export const projects: Project[] = [
       { label: "Client", value: "UBC Advanced Robotics Lab" },
     ],
     gallery: [
-      { src: gosselinHero, caption: "Full assembly — nine actuators in a redundant parallel arrangement." },
-      { src: gosselinDetail1, caption: "Spherical joint detail — end-effector support with three rotational DOF." },
-      { src: gosselinDetail2, caption: "Kinematic model used to verify the singularity-avoidant workspace in MATLAB." },
-      { src: gosselinDetail3, caption: "Physical prototype on the bench during integration." },
+      { src: gosselinAssemblyAnnotated, caption: "Full assembly — labeled actuators, joints, end-effector, and base platform." },
+      { src: gosselinUniversal, caption: "Universal joint — supports each actuator with 2-axis rotation at the base." },
+      { src: gosselinUniversalCallout, caption: "Universal joint exploded callouts — pillow-block bearing, shaft clamp, U-bracket, sleeve bearing." },
+      { src: gosselinSpherical, caption: "Spherical joint — supports the end-effector with 3-axis rotation." },
+      { src: gosselinRevolute, caption: "Revolute joint — couples redundant actuators at stroke ends with free pinned rotation." },
+      { src: gosselinBase, caption: "Base platform — mounts all nine universal joints in a common plane." },
+      { src: gosselinBaseDrawing, caption: "Base platform — manufacturing drawing." },
+      { src: gosselinWorkspace, caption: "Workspace polar diagram for the base layout." },
     ],
   },
   {
