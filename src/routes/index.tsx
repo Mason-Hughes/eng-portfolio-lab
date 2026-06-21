@@ -1,29 +1,417 @@
 import { createFileRoute } from "@tanstack/react-router";
+import heroBg from "@/assets/hero-bg.jpg";
+import project1 from "@/assets/project-1.jpg";
+import project2 from "@/assets/project-2.jpg";
+import project3 from "@/assets/project-3.jpg";
+import portrait from "@/assets/portrait.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Your App" },
-      { name: "description", content: "Replace this with a one-sentence description of your app." },
-      { property: "og:title", content: "Your App" },
-      { property: "og:description", content: "Replace this with a one-sentence description of your app." },
+      { title: "Mechanical Design Engineer — Portfolio" },
+      {
+        name: "description",
+        content:
+          "Portfolio of a mechanical design engineer specializing in robotics and industrial systems. Selected projects, capabilities, and contact.",
+      },
+      { property: "og:title", content: "Mechanical Design Engineer — Portfolio" },
+      {
+        property: "og:description",
+        content:
+          "Selected work in robotics and industrial mechanical systems — concept, design, fabrication.",
+      },
     ],
   }),
-  component: Index,
+  component: Portfolio,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
-function Index() {
+const NAME = "Engineer";
+const TAGLINE = "Mechanical Design Engineer";
+
+type Project = {
+  index: string;
+  title: string;
+  role: string;
+  year: string;
+  summary: string;
+  image: string;
+  tags: string[];
+};
+
+const projects: Project[] = [
+  {
+    index: "01",
+    title: "Six-Axis Pick & Place Cell",
+    role: "Lead Mechanical Designer",
+    year: "2024",
+    summary:
+      "End-to-end mechanical design of a compact 6-DOF robotic cell for high-mix electronics assembly — from kinematic study to DFM-ready CAD and supplier handoff.",
+    image: project1,
+    tags: ["Robotics", "SolidWorks", "FEA", "DFM"],
+  },
+  {
+    index: "02",
+    title: "Precision Linear Actuator",
+    role: "Mechanical Engineer",
+    year: "2023",
+    summary:
+      "Compact ballscrew-driven actuator with sub-10µm repeatability for inline metrology. Designed the housing, preload stack, and thermal compensation strategy.",
+    image: project2,
+    tags: ["Precision", "Tolerance Stack", "Machining"],
+  },
+  {
+    index: "03",
+    title: "Modular Conveyor Platform",
+    role: "Mechanical Design",
+    year: "2023",
+    summary:
+      "Reconfigurable belt module for industrial sortation. Standardized frame extrusions, quick-swap drive heads, and a snap-fit guarding system used across three product lines.",
+    image: project3,
+    tags: ["Automation", "Sheet Metal", "Modularity"],
+  },
+];
+
+const capabilities = [
+  { label: "CAD", value: "SolidWorks · Fusion 360 · NX" },
+  { label: "Analysis", value: "FEA · Tolerance Stack · GD&T" },
+  { label: "Fabrication", value: "CNC · Sheet Metal · 3D Print" },
+  { label: "Domains", value: "Robotics · Industrial Automation" },
+];
+
+function Portfolio() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
+    <main className="min-h-screen bg-background text-foreground">
+      <Nav />
+      <Hero />
+      <Mission />
+      <Projects />
+      <Capabilities />
+      <About />
+      <Contact />
+      <Footer />
+    </main>
+  );
+}
+
+function Nav() {
+  return (
+    <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-background/40 border-b border-border">
+      <div className="mx-auto max-w-[1400px] px-6 md:px-10 h-16 flex items-center justify-between">
+        <a href="#top" className="font-serif text-xl tracking-tight">
+          {NAME}
+          <span className="text-primary">.</span>
+        </a>
+        <nav className="hidden md:flex items-center gap-10">
+          <a href="#work" className="nav-link">Work</a>
+          <a href="#capabilities" className="nav-link">Capabilities</a>
+          <a href="#about" className="nav-link">About</a>
+          <a href="#contact" className="nav-link">Contact</a>
+        </nav>
+      </div>
+    </header>
+  );
+}
+
+function Hero() {
+  return (
+    <section id="top" className="relative min-h-screen flex items-center overflow-hidden">
       <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
+        src={heroBg}
+        alt=""
+        width={1920}
+        height={1280}
+        className="absolute inset-0 h-full w-full object-cover opacity-70"
       />
+      <div
+        className="absolute inset-0"
+        style={{
+          background:
+            "radial-gradient(ellipse at 60% 50%, transparent, oklch(0.13 0.005 60) 75%), linear-gradient(180deg, oklch(0.13 0.005 60 / 0.6), oklch(0.13 0.005 60 / 0.95))",
+        }}
+      />
+      <div className="relative mx-auto max-w-[1400px] px-6 md:px-10 w-full pt-32 pb-24">
+        <div className="max-w-3xl">
+          <p className="eyebrow fade-in">Portfolio — 2026</p>
+          <h1 className="display text-5xl sm:text-7xl md:text-8xl mt-6 rise-in">
+            Designing
+            <br />
+            <em className="italic text-primary/90">things that move</em>
+            <span className="text-primary">.</span>
+          </h1>
+          <p className="mt-8 max-w-xl text-base md:text-lg text-muted-foreground leading-relaxed fade-in-slow">
+            {TAGLINE} working at the intersection of robotics and industrial
+            systems — from first concept sketches to production-ready hardware.
+          </p>
+          <div className="mt-12 flex items-center gap-6 fade-in-slow">
+            <a
+              href="#work"
+              className="inline-flex items-center gap-3 nav-link text-foreground hover:text-primary"
+            >
+              <span>Selected Work</span>
+              <span aria-hidden>↓</span>
+            </a>
+            <span className="hairline w-24" />
+            <a href="#contact" className="nav-link">Get in touch</a>
+          </div>
+        </div>
+      </div>
+
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 fade-in-slow">
+        <span className="eyebrow">Scroll</span>
+        <span className="w-px h-10 bg-border" />
+      </div>
+    </section>
+  );
+}
+
+function SectionHeading({ label, title }: { label: string; title: React.ReactNode }) {
+  return (
+    <div className="grid md:grid-cols-12 gap-8 items-end mb-16">
+      <div className="md:col-span-3">
+        <p className="eyebrow">{label}</p>
+      </div>
+      <div className="md:col-span-9">
+        <h2 className="display text-4xl sm:text-5xl md:text-6xl max-w-3xl">
+          {title}
+        </h2>
+      </div>
     </div>
+  );
+}
+
+function Mission() {
+  return (
+    <section className="relative py-32 md:py-48">
+      <div className="mx-auto max-w-[1400px] px-6 md:px-10">
+        <SectionHeading
+          label="Discipline"
+          title={
+            <>
+              Rigorous mechanical design,
+              <br />
+              <em className="italic text-muted-foreground">built to be made.</em>
+            </>
+          }
+        />
+        <div className="grid md:grid-cols-12 gap-8 md:gap-16">
+          <div className="md:col-span-3 md:col-start-4">
+            <p className="text-muted-foreground leading-relaxed">
+              I design parts and systems that survive contact with the shop
+              floor — tolerance stacks worked out before the first chip is cut,
+              every fastener justified, every assembly thought through.
+            </p>
+          </div>
+          <div className="md:col-span-3">
+            <p className="text-muted-foreground leading-relaxed">
+              My work spans early concept exploration, detailed CAD,
+              simulation, and supplier collaboration through to first article
+              inspection and production ramp.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Projects() {
+  return (
+    <section id="work" className="relative py-24 md:py-32 border-t border-border">
+      <div className="mx-auto max-w-[1400px] px-6 md:px-10">
+        <SectionHeading
+          label="Selected Work — 03"
+          title={
+            <>
+              Three projects.
+              <br />
+              <em className="italic text-muted-foreground">From sketch to ship.</em>
+            </>
+          }
+        />
+        <div className="space-y-32 md:space-y-48">
+          {projects.map((p, i) => (
+            <ProjectRow key={p.index} project={p} flipped={i % 2 === 1} />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function ProjectRow({ project, flipped }: { project: Project; flipped: boolean }) {
+  return (
+    <article className="grid md:grid-cols-12 gap-8 md:gap-12 items-center">
+      <div
+        className={`md:col-span-7 ${flipped ? "md:order-2" : ""} group relative overflow-hidden rounded-sm border border-border`}
+      >
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/0 to-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700 z-10 pointer-events-none" />
+        <img
+          src={project.image}
+          alt={project.title}
+          width={1400}
+          height={1050}
+          loading="lazy"
+          className="w-full h-auto object-cover transition-transform duration-1000 group-hover:scale-[1.03]"
+        />
+      </div>
+      <div className={`md:col-span-5 ${flipped ? "md:order-1 md:pr-8" : "md:pl-4"}`}>
+        <div className="flex items-baseline gap-4 mb-6">
+          <span className="font-mono text-xs text-primary">{project.index}</span>
+          <span className="hairline flex-1" />
+          <span className="font-mono text-xs text-muted-foreground">{project.year}</span>
+        </div>
+        <h3 className="display text-3xl md:text-4xl mb-4">{project.title}</h3>
+        <p className="eyebrow mb-6">{project.role}</p>
+        <p className="text-muted-foreground leading-relaxed mb-8">{project.summary}</p>
+        <ul className="flex flex-wrap gap-x-3 gap-y-2">
+          {project.tags.map((t) => (
+            <li
+              key={t}
+              className="font-mono text-[10px] tracking-[0.18em] uppercase text-muted-foreground border border-border px-3 py-1.5"
+            >
+              {t}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </article>
+  );
+}
+
+function Capabilities() {
+  return (
+    <section id="capabilities" className="relative py-32 md:py-48 border-t border-border">
+      <div className="mx-auto max-w-[1400px] px-6 md:px-10">
+        <SectionHeading
+          label="Capabilities"
+          title={
+            <>
+              The toolbox
+              <em className="italic text-muted-foreground">, refined.</em>
+            </>
+          }
+        />
+        <div className="grid md:grid-cols-12 gap-8 md:gap-12">
+          <div className="md:col-span-7">
+            <ul className="divide-y divide-border border-y border-border">
+              {capabilities.map((c) => (
+                <li key={c.label} className="grid grid-cols-3 gap-6 py-6">
+                  <span className="eyebrow col-span-1">{c.label}</span>
+                  <span className="col-span-2 text-foreground/90">{c.value}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <aside className="md:col-span-4 md:col-start-9 space-y-6">
+            <p className="eyebrow">Working knowledge of</p>
+            <p className="text-muted-foreground leading-relaxed">
+              GD&amp;T per ASME Y14.5 · ISO 2768 · ANSI fastener standards ·
+              metric and imperial tolerancing · DFM/DFA reviews ·
+              first-article inspection · supplier qualification ·
+              mechanical test rig design.
+            </p>
+          </aside>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function About() {
+  return (
+    <section id="about" className="relative py-32 md:py-48 border-t border-border">
+      <div className="mx-auto max-w-[1400px] px-6 md:px-10">
+        <SectionHeading label="About" title={<>The engineer<span className="text-primary">.</span></>} />
+        <div className="grid md:grid-cols-12 gap-8 md:gap-12 items-start">
+          <div className="md:col-span-5">
+            <div className="relative overflow-hidden rounded-sm border border-border">
+              <img
+                src={portrait}
+                alt="Portrait"
+                width={900}
+                height={1100}
+                loading="lazy"
+                className="w-full h-auto object-cover"
+              />
+            </div>
+          </div>
+          <div className="md:col-span-6 md:col-start-7 space-y-6">
+            <p className="text-lg leading-relaxed">
+              I'm a mechanical design engineer focused on robotics and
+              industrial systems. I like problems that live at the boundary of
+              mechanism, electronics, and software — where a clever bracket
+              saves a sensor, or a thoughtful tolerance budget unlocks a
+              process.
+            </p>
+            <p className="text-muted-foreground leading-relaxed">
+              My background spans early-stage hardware startups and
+              established industrial OEMs. I'm comfortable owning a subsystem
+              from a blank sketchbook to a serial-numbered shipping unit, and
+              I work fluently across the CAD-to-shop-floor handoff.
+            </p>
+            <p className="text-muted-foreground leading-relaxed">
+              Currently open to full-time mechanical engineering roles.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Contact() {
+  return (
+    <section id="contact" className="relative py-32 md:py-48 border-t border-border">
+      <div className="mx-auto max-w-[1400px] px-6 md:px-10">
+        <p className="eyebrow mb-10">Contact</p>
+        <h2 className="display text-5xl sm:text-7xl md:text-8xl max-w-4xl">
+          Let's build
+          <br />
+          <em className="italic text-primary">something real</em>
+          <span className="text-primary">.</span>
+        </h2>
+
+        <div className="mt-20 grid md:grid-cols-12 gap-8">
+          <div className="md:col-span-6">
+            <p className="eyebrow mb-3">Email</p>
+            <a
+              href="mailto:you@example.com"
+              className="text-2xl md:text-3xl font-serif hover:text-primary transition-colors"
+            >
+              you@example.com
+            </a>
+          </div>
+          <div className="md:col-span-6 grid grid-cols-2 gap-8">
+            <div>
+              <p className="eyebrow mb-3">LinkedIn</p>
+              <a href="#" className="text-lg hover:text-primary transition-colors">
+                /in/your-handle
+              </a>
+            </div>
+            <div>
+              <p className="eyebrow mb-3">Resume</p>
+              <a href="#" className="text-lg hover:text-primary transition-colors">
+                Download PDF ↗
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Footer() {
+  return (
+    <footer className="border-t border-border">
+      <div className="mx-auto max-w-[1400px] px-6 md:px-10 py-10 flex flex-col md:flex-row gap-4 justify-between items-start md:items-center">
+        <p className="font-mono text-xs text-muted-foreground tracking-[0.18em] uppercase">
+          © {new Date().getFullYear()} — {NAME}
+        </p>
+        <p className="font-mono text-xs text-muted-foreground tracking-[0.18em] uppercase">
+          Designed &amp; built by hand
+        </p>
+      </div>
+    </footer>
   );
 }
