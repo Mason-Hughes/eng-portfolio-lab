@@ -1,7 +1,12 @@
-import gosselinHero from "@/assets/gosselin-hero.jpg";
-import gosselinDetail1 from "@/assets/gosselin-detail-1.jpg";
-import gosselinDetail2 from "@/assets/gosselin-detail-2.jpg";
-import gosselinDetail3 from "@/assets/gosselin-detail-3.jpg";
+import gosselinAssemblyClean from "@/assets/gosselin/img-07.jpg";
+import gosselinAssemblyAnnotated from "@/assets/gosselin/img-05.jpg";
+import gosselinUniversal from "@/assets/gosselin/img-01.jpg";
+import gosselinUniversalCallout from "@/assets/gosselin/img-02.jpg";
+import gosselinSpherical from "@/assets/gosselin/img-03.jpg";
+import gosselinRevolute from "@/assets/gosselin/img-04.jpg";
+import gosselinBase from "@/assets/gosselin/img-08.jpg";
+import gosselinBaseDrawing from "@/assets/gosselin/img-09.jpg";
+import gosselinWorkspace from "@/assets/gosselin/img-10.jpg";
 import project2 from "@/assets/project-2.jpg";
 import project3 from "@/assets/project-3.jpg";
 
