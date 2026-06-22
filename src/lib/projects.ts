@@ -7,6 +7,7 @@ import gosselinRevolute from "@/assets/gosselin/img-04.jpg";
 import gosselinBase from "@/assets/gosselin/img-08.jpg";
 import gosselinBaseDrawing from "@/assets/gosselin/img-09.jpg";
 import gosselinWorkspace from "@/assets/gosselin/img-10.jpg";
+import feRadiatorCover from "@/assets/formula-electric/cover.jpg";
 import cableCover from "@/assets/cable-climber/cover.jpg";
 import cableFinal2 from "@/assets/cable-climber/final-2.jpg";
 import cableCadExploded from "@/assets/cable-climber/cad-exploded.jpg";
@@ -90,8 +91,79 @@ export const projects: Project[] = [
     ],
   },
   {
-    slug: "cable-climber",
+    slug: "formula-electric-radiator",
     index: "02",
+    title: "Formula Electric Radiator Package",
+    subtitle: "Optimized radiators and cooling-system characterization",
+    role: "Thermal & Mechanical Design",
+    year: "2024",
+    client: "UBC Formula Electric",
+    summary:
+      "Loose design outline for a compact, high-performance radiator package and test plan to characterize thermal loads and cooling requirements for a Formula Electric race car.",
+    cover: feRadiatorCover,
+    tags: ["Thermal Design", "Formula Electric", "Testing", "Heat Exchangers"],
+    problem:
+      "Formula Electric cars push electric powertrains hard for extended periods, so the cooling system must reject enough heat while staying light, compact, and aerodynamically clean. The team needed a structured approach to size the radiator, choose the fan and ducting strategy, and define a test program that proves the package meets track demands before the car is built.",
+    approach: [
+      "Map heat sources: motor, inverter, battery pack, and any auxiliary loops, with estimated continuous and peak heat rejection targets.",
+      "Build a simplified thermal model to relate coolant flow rate, radiator core size, air-side pressure drop, and ambient conditions to steady-state temperatures.",
+      "Trade radiator core geometry (tube/fin density, thickness, material) against packaging envelope, mass, and cost using vendor data and hand calculations.",
+      "Sketch ducting and fan integration to maximize useful airflow through the core while minimizing drag and bypass leakage.",
+      "Outline a bench-test plan: flow-loop characterization, steady-state heat-rejection curves, fan performance mapping, and on-track temperature logging.",
+      "Define pass/fail criteria linking test data back to lap-time simulations and component temperature limits.",
+    ],
+    outcome: [
+      "Drafted a complete thermal load summary and radiator sizing rationale for the team design review.",
+      "Proposed a test matrix that isolates radiator, fan, and ducting contributions to reduce track-side risk.",
+      "Identified key specs and sensors needed to validate the cooling system under representative conditions.",
+    ],
+    specs: [
+      { label: "Vehicle Class", value: "Formula Electric" },
+      { label: "Heat Rejection Target", value: "TBD by powertrain analysis" },
+      { label: "Radiator Core", value: "Aluminum tube-and-fin, size TBD" },
+      { label: "Cooling Loops", value: "Motor / inverter / battery (multi-loop)" },
+      { label: "Test Methods", value: "Flow loop, wind-tunnel/bench fan map, on-track logging" },
+      { label: "Tools", value: "Hand calcs · Excel/MATLAB · SolidWorks (packaging)" },
+      { label: "Client", value: "UBC Formula Electric" },
+    ],
+    gallery: [
+      { src: feRadiatorCover, caption: "Concept render of the Formula Electric radiator and cooling package." },
+    ],
+  },
+  {
+    slug: "modular-conveyor-platform",
+    index: "03",
+    title: "Modular Conveyor Platform",
+    role: "Mechanical Design",
+    year: "2023",
+    summary:
+      "Reconfigurable belt module for industrial sortation. Standardized frame extrusions, quick-swap drive heads, and a snap-fit guarding system used across three product lines.",
+    cover: project3,
+    tags: ["Automation", "Sheet Metal", "Modularity"],
+    problem:
+      "Three sortation product lines were each carrying bespoke conveyor designs, driving up SKU count, lead time, and field-service burden. The team needed a single modular platform that could span all three.",
+    approach: [
+      "Defined a standardized extruded-aluminum frame profile shared across all module lengths.",
+      "Designed quick-swap drive heads with a common mounting pattern, supporting three motor classes.",
+      "Specified a snap-fit polycarbonate guarding system to eliminate guard-specific fasteners.",
+      "Authored DFM documentation and supplier drawings for the first production run.",
+    ],
+    outcome: [
+      "Unified BOM across three product lines, cutting unique part count by ~40%.",
+      "Field swap time for a failed drive head dropped from hours to minutes.",
+      "Platform adopted as the standard for all new sortation development.",
+    ],
+    specs: [
+      { label: "Module Lengths", value: "0.5 m · 1.0 m · 2.0 m" },
+      { label: "Belt Width", value: "300 mm" },
+      { label: "Frame", value: "Anodized 6063 extrusion" },
+      { label: "Drive Options", value: "3 motor classes, common pattern" },
+    ],
+    gallery: [{ src: project3, caption: "Module with drive head and guarding installed." }],
+  },
+  {
+    slug: "cable-climber",
+    index: "04",
     title: "Cable Climber",
     subtitle: "1st-place competition device — cable-traversing payload mover",
     role: "Mechanical Design & Fabrication (Team of 6)",
@@ -138,37 +210,6 @@ export const projects: Project[] = [
       { src: cableRound3, caption: "Round 3 — 90° vertical ascent along 1.8 m of cable." },
       { src: cableRound4, caption: "Round 4 — vertical ascent carrying a payload via wire hook." },
     ],
-  },
-  {
-    slug: "modular-conveyor-platform",
-    index: "03",
-    title: "Modular Conveyor Platform",
-    role: "Mechanical Design",
-    year: "2023",
-    summary:
-      "Reconfigurable belt module for industrial sortation. Standardized frame extrusions, quick-swap drive heads, and a snap-fit guarding system used across three product lines.",
-    cover: project3,
-    tags: ["Automation", "Sheet Metal", "Modularity"],
-    problem:
-      "Three sortation product lines were each carrying bespoke conveyor designs, driving up SKU count, lead time, and field-service burden. The team needed a single modular platform that could span all three.",
-    approach: [
-      "Defined a standardized extruded-aluminum frame profile shared across all module lengths.",
-      "Designed quick-swap drive heads with a common mounting pattern, supporting three motor classes.",
-      "Specified a snap-fit polycarbonate guarding system to eliminate guard-specific fasteners.",
-      "Authored DFM documentation and supplier drawings for the first production run.",
-    ],
-    outcome: [
-      "Unified BOM across three product lines, cutting unique part count by ~40%.",
-      "Field swap time for a failed drive head dropped from hours to minutes.",
-      "Platform adopted as the standard for all new sortation development.",
-    ],
-    specs: [
-      { label: "Module Lengths", value: "0.5 m · 1.0 m · 2.0 m" },
-      { label: "Belt Width", value: "300 mm" },
-      { label: "Frame", value: "Anodized 6063 extrusion" },
-      { label: "Drive Options", value: "3 motor classes, common pattern" },
-    ],
-    gallery: [{ src: project3, caption: "Module with drive head and guarding installed." }],
   },
 ];
 
