@@ -221,6 +221,10 @@ export const projects: Project[] = [
       { src: cableRound3, caption: "Round 3 — 90° vertical ascent along 1.8 m of cable." },
       { src: cableRound4, caption: "Round 4 — vertical ascent carrying a payload via wire hook." },
     ],
+    video: {
+      embedUrl: "https://drive.google.com/file/d/1Dqqmo4Xb2NjW6uq0oAfq4CmSkCQbVI0A/preview",
+      caption: "Full assembly of the final Cable Climber robot.",
+    },
   },
 ];
 
