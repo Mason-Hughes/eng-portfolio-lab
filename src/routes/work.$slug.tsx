@@ -178,6 +178,27 @@ function ProjectDetail() {
         </section>
       )}
 
+      {/* Video */}
+      {project.video && (
+        <section className="relative py-24 md:py-32 border-b border-border bg-card/40">
+          <div className="mx-auto max-w-[1400px] px-6 md:px-10">
+            <SectionBlock label="Assembly" title="Full build in motion.">
+              <div className="relative aspect-video overflow-hidden rounded-sm border border-border bg-black">
+                <iframe
+                  src={project.video.embedUrl}
+                  title={project.video.caption}
+                  allow="autoplay; fullscreen"
+                  className="absolute inset-0 w-full h-full"
+                />
+              </div>
+              <p className="mt-4 font-mono text-xs text-muted-foreground tracking-wide">
+                {project.video.caption}
+              </p>
+            </SectionBlock>
+          </div>
+        </section>
+      )}
+
       {/* Outcome */}
       <section className="relative py-24 md:py-32 border-b border-border">
         <div className="mx-auto max-w-[1400px] px-6 md:px-10">
