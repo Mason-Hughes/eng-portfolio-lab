@@ -39,6 +39,7 @@ export type Project = {
   outcome: string[];
   specs: ProjectSpec[];
   gallery: { src: string; caption: string }[];
+  video?: { embedUrl: string; caption: string };
 };
 
 export const projects: Project[] = [
