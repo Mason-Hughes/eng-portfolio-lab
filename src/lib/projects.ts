@@ -1,3 +1,4 @@
+import powderFeederCover from "@/assets/powder-feeder/cover.jpg";
 import gosselinAssemblyClean from "@/assets/gosselin/img-07.jpg";
 import gosselinAssemblyAnnotated from "@/assets/gosselin/img-05.jpg";
 import gosselinUniversal from "@/assets/gosselin/img-01.jpg";
@@ -19,7 +20,6 @@ import cableRound1 from "@/assets/cable-climber/round1.jpg";
 import cableRound2 from "@/assets/cable-climber/round2.jpg";
 import cableRound3 from "@/assets/cable-climber/round3.jpg";
 import cableRound4 from "@/assets/cable-climber/round4.jpg";
-import project3 from "@/assets/project-3.jpg";
 
 export type ProjectSpec = { label: string; value: string };
 
@@ -43,8 +43,49 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    slug: "gosselin-platform",
+    slug: "powder-feeder",
     index: "01",
+    title: "High-Pressure Powder Feeder",
+    subtitle: "Precision 25 µm powder feeding into pressurized gas flow",
+    role: "Mechanical Design",
+    year: "2024",
+    client: "Industrial Additive Manufacturing",
+    summary:
+      "Pressure-rated powder feeder designed to deliver 25 µm powder smoothly and consistently into a high-pressure carrier gas stream, rated to 1 000 psi.",
+    cover: powderFeederCover,
+    tags: ["Powder Handling", "High-Pressure Design", "Process Equipment", "DFM"],
+    problem:
+      "Fine powders — especially 25 µm particles — agglomerate, bridge, and pulsate when fed into a high-pressure gas stream. Existing feeders either can't hold pressure past a few hundred psi or introduce unacceptable variation in mass flow rate. The application needed a compact, shop-buildable feeder that maintains steady entrainment of 25 µm powder at up to 1 000 psi while staying clean enough for repeated disassembly and refill.",
+    approach: [
+      "Sized the pressure vessel and wetted parts for a 1 000 psi working pressure with an ASME VIII-1-inspired safety factor and all 316L stainless wetted surfaces.",
+      "Selected a precision auger metering screw with variable-speed gear drive to translate hopper level changes into a controlled, repeatable mass flow rate.",
+      "Designed a conical hopper with optional mechanical agitation to break arches and prevent bridging of fine, cohesive powder.",
+      "Integrated a fluidization chamber just upstream of the carrier gas inlet to precondition the powder and smooth pulsation before entrainment.",
+      "Specified high-pressure compression fittings, a rupture-disc/relief path, and an inline filter to protect downstream gas handling from stray fines.",
+      "Laid out the assembly for DFM: bolted flanges with O-ring grooves, clear service access, and minimal threaded holes into thin-walled pressure boundaries.",
+    ],
+    outcome: [
+      "Achieved a smooth, non-pulsating feed of 25 µm powder into a 1 000 psi carrier gas stream.",
+      "Held the target mass-flow tolerance across hopper-fill level and pressure transients.",
+      "Delivered a clean BOM and fabrication package (vessel, flanges, auger, drive mount) suitable for in-house or supplier build.",
+    ],
+    specs: [
+      { label: "Powder Size", value: "25 µm" },
+      { label: "Working Pressure", value: "1 000 psi" },
+      { label: "Wetted Material", value: "316L stainless steel" },
+      { label: "Metering Method", value: "Precision auger screw" },
+      { label: "Flow Conditioning", value: "Conical hopper + fluidization chamber" },
+      { label: "Drive", value: "Variable-speed gear motor" },
+      { label: "Sealing", value: "O-ring flanges + high-pressure compression fittings" },
+      { label: "Tools", value: "SolidWorks · Hand calcs" },
+    ],
+    gallery: [
+      { src: powderFeederCover, caption: "Cutaway render of the pressure-rated powder feeder and carrier-gas entrainment line." },
+    ],
+  },
+  {
+    slug: "gosselin-platform",
+    index: "02",
     title: "Gosselin Platform",
     subtitle: "Novel 9-DOF Kinematically Redundant Parallel Robot",
     role: "Mechanical Design & Fabrication Lead",
@@ -92,7 +133,7 @@ export const projects: Project[] = [
   },
   {
     slug: "formula-electric-radiator",
-    index: "02",
+    index: "03",
     title: "Formula Electric Radiator Package",
     subtitle: "Optimized radiators and cooling-system characterization",
     role: "Thermal & Mechanical Design",
@@ -129,37 +170,6 @@ export const projects: Project[] = [
     gallery: [
       { src: feRadiatorCover, caption: "Concept render of the Formula Electric radiator and cooling package." },
     ],
-  },
-  {
-    slug: "modular-conveyor-platform",
-    index: "03",
-    title: "Modular Conveyor Platform",
-    role: "Mechanical Design",
-    year: "2023",
-    summary:
-      "Reconfigurable belt module for industrial sortation. Standardized frame extrusions, quick-swap drive heads, and a snap-fit guarding system used across three product lines.",
-    cover: project3,
-    tags: ["Automation", "Sheet Metal", "Modularity"],
-    problem:
-      "Three sortation product lines were each carrying bespoke conveyor designs, driving up SKU count, lead time, and field-service burden. The team needed a single modular platform that could span all three.",
-    approach: [
-      "Defined a standardized extruded-aluminum frame profile shared across all module lengths.",
-      "Designed quick-swap drive heads with a common mounting pattern, supporting three motor classes.",
-      "Specified a snap-fit polycarbonate guarding system to eliminate guard-specific fasteners.",
-      "Authored DFM documentation and supplier drawings for the first production run.",
-    ],
-    outcome: [
-      "Unified BOM across three product lines, cutting unique part count by ~40%.",
-      "Field swap time for a failed drive head dropped from hours to minutes.",
-      "Platform adopted as the standard for all new sortation development.",
-    ],
-    specs: [
-      { label: "Module Lengths", value: "0.5 m · 1.0 m · 2.0 m" },
-      { label: "Belt Width", value: "300 mm" },
-      { label: "Frame", value: "Anodized 6063 extrusion" },
-      { label: "Drive Options", value: "3 motor classes, common pattern" },
-    ],
-    gallery: [{ src: project3, caption: "Module with drive head and guarding installed." }],
   },
   {
     slug: "cable-climber",
