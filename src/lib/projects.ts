@@ -1,3 +1,5 @@
+import copperHeExploded from "@/assets/copper-he/exploded.png";
+import copperHeDisk from "@/assets/copper-he/disk.png";
 import powderFeederCover from "@/assets/powder-feeder/cover.jpg";
 import gosselinAssemblyClean from "@/assets/gosselin/img-07.jpg";
 import gosselinAssemblyAnnotated from "@/assets/gosselin/img-05.jpg";
@@ -44,8 +46,54 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    slug: "powder-feeder",
+    slug: "copper-heat-exchanger",
     index: "01",
+    title: "Copper Heat Exchanger",
+    subtitle: "High-temperature gas-to-cartridge heat exchanger stack",
+    role: "Mechanical Design & Thermal Analysis",
+    year: "2025",
+    client: "Research / Test Facility",
+    summary:
+      "Bolted stack of nickel-plated copper disks between SS 304 lids, heated by embedded cartridges and sealed for 800 psi gas service. Sized for a 450 °C operating ceiling governed by cartridge wire-lead limits.",
+    cover: copperHeExploded,
+    tags: ["Heat Transfer", "Pressure Sealing", "Thermal Stress", "DFM"],
+    problem:
+      "The test rig needed a compact heat exchanger that could heat a high-pressure gas stream by direct contact with embedded cartridge heaters, hold 800 psi without leaking through stacked gaskets, and survive repeated thermal cycling. The design had to balance copper's thermal conductivity against its poor high-temperature strength, while keeping bolt preload inside the elastic region across the full operating temperature range.",
+    approach: [
+      "Stacked eight Ø6\" × 1\" nickel-plated copper disks between two SS 304 cap plates, with Flexitallic gaskets at each interface for 800 psi sealing.",
+      "Plated the copper with electroless nickel to prevent oxidation and galvanic interaction with the steel hardware at temperature.",
+      "Tied the stack together with 18 × 3/8\"-16 ASTM A193 B16 threaded rods and A194 Grade 7 nuts (double-nutted) for creep-tolerant clamping.",
+      "Drilled six Ø<3/8\" × 6\" cartridge-heater pockets through the stack to deliver heat directly into the copper core.",
+      "Worked the bolt-preload / thermal-expansion math: 5031 N preload per rod with a 1.5× design factor, leaving ~0.71 mm of stretch headroom for differential expansion before yield.",
+      "Set the operating ceiling at 450 °C — governed by the cartridge wire-lead limit — and called out a nut replacement cadence to manage long-term creep.",
+      "Built out a 4-up mounting assembly (mild-steel lid plates, L-angle frame, C-channel rails) so multiple exchangers can run in parallel on the same bench.",
+    ],
+    outcome: [
+      "Validated a clamping scheme that stays elastic across the 450 °C operating range, even at the conservative \"no rod expansion\" bound (≈188 °C ΔT margin).",
+      "Delivered a full BOM and vendor list — copper, SS lids, B16 rods, Flexitallic gaskets, A194-7 nuts, cartridge heaters, NPT-JIC fittings — pricing three exchangers at ~$11.8k.",
+      "Mounting frame sized to host four exchangers in parallel for ~$685 of additional structural cost.",
+    ],
+    specs: [
+      { label: "Gas Pressure", value: "800 psi (5.52 MPa)" },
+      { label: "Max Operating Temp", value: "450 °C (cartridge lead-limited)" },
+      { label: "Copper Disks", value: "8 × Ø6\" × 1\", nickel-plated" },
+      { label: "Lids", value: "2 × SS 304, Ø6\" × ¼\"" },
+      { label: "Tie Rods", value: "18 × 3/8\"-16, ASTM A193 B16" },
+      { label: "Nuts", value: "72 × ASTM A194 Grade 7 (double-nutted)" },
+      { label: "Gaskets", value: "7 × Flexitallic, ID 4\" / OD 4.583\"" },
+      { label: "Heat Cartridges", value: "6 × <3/8\" Ø × 6\" long" },
+      { label: "Bolt Preload", value: "5031 N/rod (1.5× design factor)" },
+      { label: "Ports", value: "½\" NPT → ½\" JIC" },
+      { label: "Tools", value: "SolidWorks · Hand calcs (ASME)" },
+    ],
+    gallery: [
+      { src: copperHeExploded, caption: "Exploded section view — SS 304 lid, stacked nickel-plated copper disks, and tie-rod bolt pattern." },
+      { src: copperHeDisk, caption: "Single copper disk — central cartridge-heater pockets and outer tie-rod hole pattern." },
+    ],
+  },
+  {
+    slug: "powder-feeder",
+    index: "02",
     title: "High-Pressure Powder Feeder",
     subtitle: "Precision 25 µm powder feeding into pressurized gas flow",
     role: "Mechanical Design",
@@ -86,7 +134,7 @@ export const projects: Project[] = [
   },
   {
     slug: "gosselin-platform",
-    index: "02",
+    index: "03",
     title: "Gosselin Platform",
     subtitle: "Novel 9-DOF Kinematically Redundant Parallel Robot",
     role: "Mechanical Design & Fabrication Lead",
@@ -134,7 +182,7 @@ export const projects: Project[] = [
   },
   {
     slug: "formula-electric-radiator",
-    index: "03",
+    index: "04",
     title: "Formula Electric Radiator Package",
     subtitle: "Optimized radiators and cooling-system characterization",
     role: "Thermal & Mechanical Design",
@@ -174,7 +222,7 @@ export const projects: Project[] = [
   },
   {
     slug: "cable-climber",
-    index: "04",
+    index: "05",
     title: "Cable Climber",
     subtitle: "1st-place competition device — cable-traversing payload mover",
     role: "Mechanical Design & Fabrication (Team of 6)",
