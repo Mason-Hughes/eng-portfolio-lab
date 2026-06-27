@@ -95,8 +95,13 @@ export const projects: Project[] = [
       { label: "Tools", value: "SolidWorks · Hand calcs (ASME)" },
     ],
     gallery: [
-      { src: copperHeExploded, caption: "Exploded section view — SS 304 lid, stacked nickel-plated copper disks, and tie-rod bolt pattern." },
-      { src: copperHeDisk, caption: "Single copper disk — central cartridge-heater pockets and outer tie-rod hole pattern." },
+      { src: copperHeSection, caption: "CAD section view — three-disk stack between SS 304 lids showing internal flow geometry and tie-rod pattern." },
+      { src: copperHeDiskPhoto, caption: "Single nickel-plated copper disk — radial flow slots and outer tie-rod hole pattern." },
+      { src: copperHeStackTop, caption: "Top-down view into the assembled stack — central flow geometry framed by tie rods." },
+      { src: copperHeStackSide, caption: "Side view of the stacked copper disks clamped between cap plates by the tie-rod array." },
+      { src: copperHeAssembled, caption: "Fully assembled exchanger on the bench — torqued tie-rod pattern and instrumented gas ports." },
+      { src: copperHeTopView, caption: "Cap-plate face — bolt circle, central port, and tie-rod hole pattern." },
+      { src: copperHeFourUp, caption: "Four exchangers mounted in parallel on the shared bench frame." },
     ],
   },
   {
