@@ -64,7 +64,7 @@ export const projects: Project[] = [
     client: "Research / Test Facility",
     summary:
       "Bolted stack of nickel-plated copper disks between SS 304 lids, heated by embedded cartridges and sealed for 800 psi gas service. Sized for a 450 °C operating ceiling governed by cartridge wire-lead limits.",
-    cover: copperHeSection,
+    cover: copperHeEnhanced,
     tags: ["Heat Transfer", "Pressure Sealing", "Thermal Stress", "DFM"],
     problem:
       "The test rig needed a compact heat exchanger that could heat a high-pressure gas stream by direct contact with embedded cartridge heaters, hold 800 psi without leaking through stacked gaskets, and survive repeated thermal cycling. The design had to balance copper's thermal conductivity against its poor high-temperature strength, while keeping bolt preload inside the elastic region across the full operating temperature range.",
