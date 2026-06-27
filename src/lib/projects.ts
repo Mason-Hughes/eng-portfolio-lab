@@ -104,7 +104,7 @@ export const projects: Project[] = [
     client: "Industrial Additive Manufacturing",
     summary:
       "Pressure-rated powder feeder designed to deliver 25 µm powder smoothly and consistently into a high-pressure carrier gas stream, rated to 1 000 psi.",
-    cover: powderFeederCover,
+    cover: powderFeederFull,
     tags: ["Powder Handling", "High-Pressure Design", "Process Equipment", "DFM"],
     problem:
       "Fine powders — especially 25 µm particles — agglomerate, bridge, and pulsate when fed into a high-pressure gas stream. Existing feeders either can't hold pressure past a few hundred psi or introduce unacceptable variation in mass flow rate. The application needed a compact, shop-buildable feeder that maintains steady entrainment of 25 µm powder at up to 1 000 psi while staying clean enough for repeated disassembly and refill.",
@@ -132,7 +132,10 @@ export const projects: Project[] = [
       { label: "Tools", value: "SolidWorks · Hand calcs" },
     ],
     gallery: [
-      { src: powderFeederCover, caption: "Cutaway render of the pressure-rated powder feeder and carrier-gas entrainment line." },
+      { src: powderFeederFull, caption: "Section view — powder hopper column (left) and gearbox / motor column (right), tied together by the base plate." },
+      { src: powderFeederHopper, caption: "Hopper column cutaway — pressure-rated housing over the conical hopper that drops powder through the metering disc." },
+      { src: powderFeederGearbox, caption: "Gearbox column cutaway — motor and reduction stack housed in the pressure-rated right-hand column." },
+      { src: powderFeederGearDetail, caption: "Metering plate detail — driven gear (green) with through-hole pattern and intermediate pinion (blue) transferring torque from the motor." },
     ],
   },
   {
