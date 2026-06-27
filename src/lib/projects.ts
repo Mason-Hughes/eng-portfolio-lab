@@ -1,3 +1,5 @@
+import copperHeExploded from "@/assets/copper-he/exploded.png";
+import copperHeDisk from "@/assets/copper-he/disk.png";
 import powderFeederCover from "@/assets/powder-feeder/cover.jpg";
 import gosselinAssemblyClean from "@/assets/gosselin/img-07.jpg";
 import gosselinAssemblyAnnotated from "@/assets/gosselin/img-05.jpg";
