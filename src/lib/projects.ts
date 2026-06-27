@@ -93,7 +93,7 @@ export const projects: Project[] = [
   },
   {
     slug: "powder-feeder",
-    index: "01",
+    index: "02",
     title: "High-Pressure Powder Feeder",
     subtitle: "Precision 25 µm powder feeding into pressurized gas flow",
     role: "Mechanical Design",
@@ -134,7 +134,7 @@ export const projects: Project[] = [
   },
   {
     slug: "gosselin-platform",
-    index: "02",
+    index: "03",
     title: "Gosselin Platform",
     subtitle: "Novel 9-DOF Kinematically Redundant Parallel Robot",
     role: "Mechanical Design & Fabrication Lead",
@@ -182,7 +182,7 @@ export const projects: Project[] = [
   },
   {
     slug: "formula-electric-radiator",
-    index: "03",
+    index: "04",
     title: "Formula Electric Radiator Package",
     subtitle: "Optimized radiators and cooling-system characterization",
     role: "Thermal & Mechanical Design",
@@ -222,7 +222,7 @@ export const projects: Project[] = [
   },
   {
     slug: "cable-climber",
-    index: "04",
+    index: "05",
     title: "Cable Climber",
     subtitle: "1st-place competition device — cable-traversing payload mover",
     role: "Mechanical Design & Fabrication (Team of 6)",
