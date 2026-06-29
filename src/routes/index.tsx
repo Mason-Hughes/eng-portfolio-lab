@@ -175,7 +175,7 @@ function Projects() {
     <section id="work" className="relative py-24 md:py-32 border-t border-border">
       <div className="mx-auto max-w-[1400px] px-6 md:px-10">
         <SectionHeading
-          label="Selected Work — 05"
+          label="Selected Work — 03"
           title={
             <>
               Three projects.

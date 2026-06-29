@@ -1,4 +1,3 @@
-import copperHeEnhanced from "@/assets/copper-he/hero-enhanced.jpg";
 import copperHeSection from "@/assets/copper-he/photo-8.png";
 import copperHeAssembled from "@/assets/copper-he/photo-9.png";
 import copperHeTopView from "@/assets/copper-he/photo-10.png";
@@ -19,18 +18,6 @@ import gosselinRevolute from "@/assets/gosselin/img-04.jpg";
 import gosselinBase from "@/assets/gosselin/img-08.jpg";
 import gosselinBaseDrawing from "@/assets/gosselin/img-09.jpg";
 import gosselinWorkspace from "@/assets/gosselin/img-10.jpg";
-import feRadiatorCover from "@/assets/formula-electric/cover.jpg";
-import cableCover from "@/assets/cable-climber/cover.jpg";
-import cableFinal2 from "@/assets/cable-climber/final-2.jpg";
-import cableCadExploded from "@/assets/cable-climber/cad-exploded.jpg";
-import cableCadTop from "@/assets/cable-climber/cad-top.jpg";
-import cableEarly from "@/assets/cable-climber/prototype-early.jpg";
-import cableComp1 from "@/assets/cable-climber/prototype-comp-1.jpg";
-import cableComp2 from "@/assets/cable-climber/prototype-comp-2.jpg";
-import cableRound1 from "@/assets/cable-climber/round1.jpg";
-import cableRound2 from "@/assets/cable-climber/round2.jpg";
-import cableRound3 from "@/assets/cable-climber/round3.jpg";
-import cableRound4 from "@/assets/cable-climber/round4.jpg";
 
 export type ProjectSpec = { label: string; value: string };
 
@@ -64,7 +51,7 @@ export const projects: Project[] = [
     client: "Research / Test Facility",
     summary:
       "Bolted stack of nickel-plated copper disks between SS 304 lids, heated by embedded cartridges and sealed for 800 psi gas service. Sized for a 450 °C operating ceiling governed by cartridge wire-lead limits.",
-    cover: copperHeEnhanced,
+    cover: copperHeSection,
     tags: ["Heat Transfer", "Pressure Sealing", "Thermal Stress", "DFM"],
     problem:
       "The test rig needed a compact heat exchanger that could heat a high-pressure gas stream by direct contact with embedded cartridge heaters, hold 800 psi without leaking through stacked gaskets, and survive repeated thermal cycling. The design had to balance copper's thermal conductivity against its poor high-temperature strength, while keeping bolt preload inside the elastic region across the full operating temperature range.",
@@ -196,100 +183,6 @@ export const projects: Project[] = [
       { src: gosselinBaseDrawing, caption: "Base platform — manufacturing drawing." },
       { src: gosselinWorkspace, caption: "Workspace polar diagram for the base layout." },
     ],
-  },
-  {
-    slug: "formula-electric-radiator",
-    index: "04",
-    title: "Formula Electric Radiator Package",
-    subtitle: "Optimized radiators and cooling-system characterization",
-    role: "Thermal & Mechanical Design",
-    year: "2024",
-    client: "UBC Formula Electric",
-    summary:
-      "Loose design outline for a compact, high-performance radiator package and test plan to characterize thermal loads and cooling requirements for a Formula Electric race car.",
-    cover: feRadiatorCover,
-    tags: ["Thermal Design", "Formula Electric", "Testing", "Heat Exchangers"],
-    problem:
-      "Formula Electric cars push electric powertrains hard for extended periods, so the cooling system must reject enough heat while staying light, compact, and aerodynamically clean. The team needed a structured approach to size the radiator, choose the fan and ducting strategy, and define a test program that proves the package meets track demands before the car is built.",
-    approach: [
-      "Map heat sources: motor, inverter, battery pack, and any auxiliary loops, with estimated continuous and peak heat rejection targets.",
-      "Build a simplified thermal model to relate coolant flow rate, radiator core size, air-side pressure drop, and ambient conditions to steady-state temperatures.",
-      "Trade radiator core geometry (tube/fin density, thickness, material) against packaging envelope, mass, and cost using vendor data and hand calculations.",
-      "Sketch ducting and fan integration to maximize useful airflow through the core while minimizing drag and bypass leakage.",
-      "Outline a bench-test plan: flow-loop characterization, steady-state heat-rejection curves, fan performance mapping, and on-track temperature logging.",
-      "Define pass/fail criteria linking test data back to lap-time simulations and component temperature limits.",
-    ],
-    outcome: [
-      "Drafted a complete thermal load summary and radiator sizing rationale for the team design review.",
-      "Proposed a test matrix that isolates radiator, fan, and ducting contributions to reduce track-side risk.",
-      "Identified key specs and sensors needed to validate the cooling system under representative conditions.",
-    ],
-    specs: [
-      { label: "Vehicle Class", value: "Formula Electric" },
-      { label: "Heat Rejection Target", value: "TBD by powertrain analysis" },
-      { label: "Radiator Core", value: "Aluminum tube-and-fin, size TBD" },
-      { label: "Cooling Loops", value: "Motor / inverter / battery (multi-loop)" },
-      { label: "Test Methods", value: "Flow loop, wind-tunnel/bench fan map, on-track logging" },
-      { label: "Tools", value: "Hand calcs · Excel/MATLAB · SolidWorks (packaging)" },
-      { label: "Client", value: "UBC Formula Electric" },
-    ],
-    gallery: [
-      { src: feRadiatorCover, caption: "Concept render of the Formula Electric radiator and cooling package." },
-    ],
-  },
-  {
-    slug: "cable-climber",
-    index: "05",
-    title: "Cable Climber",
-    subtitle: "1st-place competition device — cable-traversing payload mover",
-    role: "Mechanical Design & Fabrication (Team of 6)",
-    year: "2022",
-    client: "MECH 233 Design Competition · UBC",
-    summary:
-      "Battery-powered device that travels along a tensioned cable, retrieves slack line, and lifts a payload at a 90° angle of ascent. Placed 1st of 20 teams.",
-    cover: cableCover,
-    tags: ["Mechanism Design", "Sheet Metal", "Drivetrain", "Prototyping"],
-    problem:
-      "Hanging-By-A-Thread Inc. sponsored a four-round design competition: build a device that retrieves 2 m of slack cable, traverses 1.8 m of horizontal cable, climbs 1.8 m of inclined cable, and lifts a payload — all on the same chassis, within strict mass and material constraints. Twenty teams competed. Scoring weighted speed and angle of ascent heavily, so the design had to be fast, light, and capable of climbing near-vertical cable.",
-    approach: [
-      "Ran a stakeholder analysis and translated needs into measurable requirements with metrics and thresholds.",
-      "Functionally decomposed the device into six top-level functions and built a morphological chart of dozens of concept fragments.",
-      "Generated ten complete concepts, ran primary screening with MATLAB and hand calculations, then a weighted decision matrix to narrow the field.",
-      "Optimized three finalist designs independently, then ran a pseudo-competition to pick the most reliable scorer.",
-      "Iterated through low-fidelity, analytical (Excel + MATLAB), and comprehensive physical prototypes to de-risk every subsystem before competition day.",
-      "Detailed the final design: 1 mm aluminum side plates with triangulated cutouts, plastic snap-in bushings, brass standoffs, set-screw collars, and a 1:12.5 gear reduction balancing speed and climbing torque.",
-    ],
-    outcome: [
-      "1st place out of 20 teams with a total revenue score of 963.3.",
-      "Successfully climbed cable at a 90° angle of ascent — the maximum allowable, maximizing Round 3 and 4 scoring.",
-      "Zero technical failures across all four competition rounds.",
-      "Three-point cable contact geometry generated enough wrap-angle friction to drive the device without supplementary clamping.",
-    ],
-    specs: [
-      { label: "Result", value: "1st of 20 teams · score 963.3" },
-      { label: "Angle of Ascent", value: "90° (vertical climb)" },
-      { label: "Drivetrain", value: "DC motor · 1:12.5 gear reduction" },
-      { label: "Frame", value: "1 mm aluminum side plates, brass hex standoffs" },
-      { label: "Cable Interface", value: "3-point contact · grooved pulley bearings" },
-      { label: "Tools", value: "SolidWorks · MATLAB · Excel" },
-      { label: "Team", value: "6 mechanical engineering students" },
-    ],
-    gallery: [
-      { src: cableFinal2, caption: "Final device — alternate angle showing drive wheel and cable path." },
-      { src: cableCadExploded, caption: "Exploded isometric CAD — drivetrain, frame, and cable guides." },
-      { src: cableCadTop, caption: "Top-view CAD model — gear train and motor mounting layout." },
-      { src: cableEarly, caption: "Early low-fidelity prototype — studying cable behaviour over a rotating pulley." },
-      { src: cableComp1, caption: "Comprehensive physical prototype — one of three late-stage iterations." },
-      { src: cableComp2, caption: "Comprehensive physical prototype — frame, drivetrain, and cable guides assembled." },
-      { src: cableRound1, caption: "Round 1 — retrieving 2 m of slack cable through the front guide." },
-      { src: cableRound2, caption: "Round 2 — horizontal traverse along 1.8 m of tensioned cable." },
-      { src: cableRound3, caption: "Round 3 — 90° vertical ascent along 1.8 m of cable." },
-      { src: cableRound4, caption: "Round 4 — vertical ascent carrying a payload via wire hook." },
-    ],
-    video: {
-      embedUrl: "https://drive.google.com/file/d/1Dqqmo4Xb2NjW6uq0oAfq4CmSkCQbVI0A/preview",
-      caption: "Full assembly of the final Cable Climber robot.",
-    },
   },
 ];
 
