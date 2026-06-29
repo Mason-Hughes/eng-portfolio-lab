@@ -19,18 +19,6 @@ import gosselinRevolute from "@/assets/gosselin/img-04.jpg";
 import gosselinBase from "@/assets/gosselin/img-08.jpg";
 import gosselinBaseDrawing from "@/assets/gosselin/img-09.jpg";
 import gosselinWorkspace from "@/assets/gosselin/img-10.jpg";
-import feRadiatorCover from "@/assets/formula-electric/cover.jpg";
-import cableCover from "@/assets/cable-climber/cover.jpg";
-import cableFinal2 from "@/assets/cable-climber/final-2.jpg";
-import cableCadExploded from "@/assets/cable-climber/cad-exploded.jpg";
-import cableCadTop from "@/assets/cable-climber/cad-top.jpg";
-import cableEarly from "@/assets/cable-climber/prototype-early.jpg";
-import cableComp1 from "@/assets/cable-climber/prototype-comp-1.jpg";
-import cableComp2 from "@/assets/cable-climber/prototype-comp-2.jpg";
-import cableRound1 from "@/assets/cable-climber/round1.jpg";
-import cableRound2 from "@/assets/cable-climber/round2.jpg";
-import cableRound3 from "@/assets/cable-climber/round3.jpg";
-import cableRound4 from "@/assets/cable-climber/round4.jpg";
 
 export type ProjectSpec = { label: string; value: string };
 
