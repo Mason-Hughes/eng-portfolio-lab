@@ -1,4 +1,3 @@
-import copperHeEnhanced from "@/assets/copper-he/hero-enhanced.jpg";
 import copperHeSection from "@/assets/copper-he/photo-8.png";
 import copperHeAssembled from "@/assets/copper-he/photo-9.png";
 import copperHeTopView from "@/assets/copper-he/photo-10.png";
