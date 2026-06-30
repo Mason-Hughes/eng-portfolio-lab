@@ -1,10 +1,10 @@
-import copperHeSection from "@/assets/copper-he/photo-8.png";
-import copperHeAssembled from "@/assets/copper-he/photo-9.png";
-import copperHeTopView from "@/assets/copper-he/photo-10.png";
-import copperHeFourUp from "@/assets/copper-he/photo-11.png";
-import copperHeStackSide from "@/assets/copper-he/photo-12.png";
-import copperHeStackTop from "@/assets/copper-he/photo-13.png";
-import copperHeDiskPhoto from "@/assets/copper-he/photo-14.png";
+import copperHeFinsCad from "@/assets/copper-he/01-fins-cad.png";
+import copperHeFinPhoto from "@/assets/copper-he/02-fin-photo.png";
+import copperHeLidSection from "@/assets/copper-he/03-lid-section.png";
+import copperHeLidIso from "@/assets/copper-he/04-lid-iso.png";
+import copperHeLidDetail from "@/assets/copper-he/05-lid-detail.png";
+import copperHeFinalSetup from "@/assets/copper-he/06-final-setup.png";
+import copperHeFinalTwo from "@/assets/copper-he/07-final-2.png";
 import powderFeederFull from "@/assets/powder-feeder/full-section.png";
 import powderFeederHopper from "@/assets/powder-feeder/hopper-section.png";
 import powderFeederGearbox from "@/assets/powder-feeder/gearbox-section.png";
@@ -42,54 +42,47 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    slug: "copper-heat-exchanger",
+    slug: "copper-gas-heater",
     index: "01",
-    title: "Copper Heat Exchanger",
-    subtitle: "High-temperature gas-to-cartridge heat exchanger stack",
+    title: "Copper Gas Heater",
+    subtitle: "18 kW modular gas heater for a cold spray system",
     role: "Mechanical Design & Thermal Analysis",
     year: "2025",
-    client: "Research / Test Facility",
     summary:
-      "Bolted stack of nickel-plated copper disks between SS 304 lids, heated by embedded cartridges and sealed for 800 psi gas service. Sized for a 450 °C operating ceiling governed by cartridge wire-lead limits.",
-    cover: copperHeSection,
-    tags: ["Heat Transfer", "Pressure Sealing", "Thermal Stress", "DFM"],
+      "Cold spray utilizes high speed gas to accelerate metal particles to critical velocities that allow for kinetic bonding at impact with metal substrates. The gas itself is typically accelerated using a converging-diverging nozzle, in which the exit velocity is proportional to the square root of the gas inlet temperature. Therefore one of the most important components in a cold spray system is the gas heater. This heater is responsible for heating up a high flow, high pressure stream of gas. The heater utilizes 18kW of 120V electricity, to bring air from 0°C to 440°C, at 1000 psi. The design of the heater was tightly constrained by cost and manufacturability, ultimately resulting in a modular design of stacked plates clamped together with threaded rods. The total cost was ~$3.5k per heater.",
+    cover: copperHeFinsCad,
+    tags: ["Heat Transfer", "Pressure Sealing", "Thermal Stress", "CFD", "DFM"],
     problem:
-      "The test rig needed a compact heat exchanger that could heat a high-pressure gas stream by direct contact with embedded cartridge heaters, hold 800 psi without leaking through stacked gaskets, and survive repeated thermal cycling. The design had to balance copper's thermal conductivity against its poor high-temperature strength, while keeping bolt preload inside the elastic region across the full operating temperature range.",
+      "Cold spray utilizes high speed gas to accelerate metal particles to critical velocities that allow for kinetic bonding at impact with metal substrates. The gas itself is typically accelerated using a converging-diverging nozzle, in which the exit velocity is proportional to the square root of the gas inlet temperature. Therefore one of the most important components in a cold spray system is the gas heater. This heater is responsible for heating up a high flow, high pressure stream of gas. The heater utilizes 18kW of 120V electricity, to bring air from 0°C to 440°C, at 1000 psi. The design of the heater was tightly constrained by cost and manufacturability, ultimately resulting in a modular design of stacked plates clamped together with threaded rods. The total cost was ~$3.5k per heater.",
     approach: [
-      "Stacked eight Ø6\" × 1\" nickel-plated copper disks between two SS 304 cap plates, with Flexitallic gaskets at each interface for 800 psi sealing.",
-      "Plated the copper with electroless nickel to prevent oxidation and galvanic interaction with the steel hardware at temperature.",
-      "Tied the stack together with 18 × 3/8\"-16 ASTM A193 B16 threaded rods and A194 Grade 7 nuts (double-nutted) for creep-tolerant clamping.",
-      "Drilled six Ø<3/8\" × 6\" cartridge-heater pockets through the stack to deliver heat directly into the copper core.",
-      "Worked the bolt-preload / thermal-expansion math: 5031 N preload per rod with a 1.5× design factor, leaving ~0.71 mm of stretch headroom for differential expansion before yield.",
-      "Set the operating ceiling at 450 °C — governed by the cartridge wire-lead limit — and called out a nut replacement cadence to manage long-term creep.",
-      "Built out a 4-up mounting assembly (mild-steel lid plates, L-angle frame, C-channel rails) so multiple exchangers can run in parallel on the same bench.",
+      "Fins: The fins pictured below are made of nickel plated copper. The copper ensures high conductivity, while the nickel plating protects from long term corrosion due to oxidation at high temperatures. The outer ring of holes are used in the final assembly for electric heat cartridges (6) and threaded rods (12 + 6 outside the disks due to nut spacing requirements). The groove is for seating the gasket, a spiral wound stainless steel gasket with a graphite filling. The internal slots operate as channels/fins for the gas to travel through. The slot width/sizing was limited on the economics of its manufacturability, and the spacing was iteratively optimized using ANSYS CFD & FEA.",
+      "Lids: The lids replicate the bolt, cartridge and gasket spacing of the fins, while replacing the internal fins with a cone to channel the gas to/from the entry/exit points. This geometrical alteration therefore introduces much higher stresses of the disk and required a swap to stainless steel 304. The lower thermal conductivity of the SS304 introduced higher thermal stresses, characterized by the external cartridge heating and internal gas cooling. These were quantified through ANSYS CFD in order to properly validate the design. Manifolds were also introduced to the entry and exit points to help guide the flow of air, avoiding excess pressure losses.",
+      "Hardware: All the hardware was selected to meet the temperature and pressure requirements of the heater. While this means selecting components that meet the strength requirements at high operating temperatures, this also presents various other challenges to design for. For example, with a total heater length of ~9.5\", the thermal expansion made rod pre-tensioning critical. The rod force must ensure proper gasket stress at low temperatures, while avoiding plastic deformation when fully stretched at maximum temperature.",
+      "Sensors/controls: Heaters operated by setting a desired temperature in our open source printer control software (Klipper) and utilizing a PID loop driven by implanted thermistors. The thermistors were embedded in one copper plate on each of the heaters, adjacent to a cartridge. The PID then drove SSRs to control the input power.",
     ],
     outcome: [
-      "Validated a clamping scheme that stays elastic across the 450 °C operating range, even at the conservative \"no rod expansion\" bound (≈188 °C ΔT margin).",
-      "Delivered a full BOM and vendor list — copper, SS lids, B16 rods, Flexitallic gaskets, A194-7 nuts, cartridge heaters, NPT-JIC fittings — pricing three exchangers at ~$11.8k.",
-      "Mounting frame sized to host four exchangers in parallel for ~$685 of additional structural cost.",
+      "The final setup consists of 4 heaters in series, resulting in a gas output temperature of ~440°C. The heaters have worked reliably in 250+ test cycles, without any degradation of performance.",
     ],
     specs: [
-      { label: "Gas Pressure", value: "800 psi (5.52 MPa)" },
-      { label: "Max Operating Temp", value: "450 °C (cartridge lead-limited)" },
-      { label: "Copper Disks", value: "8 × Ø6\" × 1\", nickel-plated" },
-      { label: "Lids", value: "2 × SS 304, Ø6\" × ¼\"" },
-      { label: "Tie Rods", value: "18 × 3/8\"-16, ASTM A193 B16" },
-      { label: "Nuts", value: "72 × ASTM A194 Grade 7 (double-nutted)" },
-      { label: "Gaskets", value: "7 × Flexitallic, ID 4\" / OD 4.583\"" },
-      { label: "Heat Cartridges", value: "6 × <3/8\" Ø × 6\" long" },
-      { label: "Bolt Preload", value: "5031 N/rod (1.5× design factor)" },
-      { label: "Ports", value: "½\" NPT → ½\" JIC" },
-      { label: "Tools", value: "SolidWorks · Hand calcs (ASME)" },
+      { label: "Copper Round Bars", value: "24× ⌀6\" × 1\", nickel plated" },
+      { label: "Stainless Steel Round Bars", value: "8× ⌀6\" × 1\"" },
+      { label: "Steel Plates", value: "8× 8.5\" × 8.5\" × 0.5\"" },
+      { label: "Threaded Rods", value: "72× 3/8\"-16 × 11\", ASTM Grade B16" },
+      { label: "Nuts", value: "288× ASTM A194 Grade B7, double nutted" },
+      { label: "Gaskets", value: "28× SS316 spiral wound, graphite filler" },
+      { label: "Entry/Exit Fittings", value: "8× SS316, 1/2\" NPT to JIC" },
+      { label: "Heat Cartridges", value: "24× 120V (12× 1000W, 12× 500W)" },
+      { label: "SSRs", value: "8× 120V DC/AC (4× 40A, 4× 15A)" },
+      { label: "Controller", value: "1× M8P Manta Control Board" },
     ],
     gallery: [
-      { src: copperHeSection, caption: "CAD section view — three-disk stack between SS 304 lids showing internal flow geometry and tie-rod pattern." },
-      { src: copperHeDiskPhoto, caption: "Single nickel-plated copper disk — radial flow slots and outer tie-rod hole pattern." },
-      { src: copperHeStackTop, caption: "Top-down view into the assembled stack — central flow geometry framed by tie rods." },
-      { src: copperHeStackSide, caption: "Side view of the stacked copper disks clamped between cap plates by the tie-rod array." },
-      { src: copperHeAssembled, caption: "Fully assembled exchanger on the bench — torqued tie-rod pattern and instrumented gas ports." },
-      { src: copperHeTopView, caption: "Cap-plate face — bolt circle, central port, and tie-rod hole pattern." },
-      { src: copperHeFourUp, caption: "Four exchangers mounted in parallel on the shared bench frame." },
+      { src: copperHeFinsCad, caption: "Nickel-plated copper fin — CAD view of the internal slot pattern, cartridge/rod holes, and gasket groove." },
+      { src: copperHeFinPhoto, caption: "Manufactured fin — nickel-plated copper disk with machined flow channels." },
+      { src: copperHeLidSection, caption: "Lid section — SS 304 cap plate with internal cone channeling gas to/from the entry/exit ports." },
+      { src: copperHeLidIso, caption: "Lid isometric — bolt, cartridge, and gasket spacing mirrors the fin geometry." },
+      { src: copperHeLidDetail, caption: "Lid detail — manifold integration at the gas entry/exit points to reduce pressure losses." },
+      { src: copperHeFinalSetup, caption: "Final setup — four heaters plumbed in series to deliver ~440 °C gas output." },
+      { src: copperHeFinalTwo, caption: "Heater stack in operation — threaded rods, gasketed fin/lid stack, and cartridge wiring." },
     ],
   },
   {
