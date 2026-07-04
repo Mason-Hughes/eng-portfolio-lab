@@ -175,10 +175,10 @@ function Projects() {
     <section id="work" className="relative py-24 md:py-32 border-t border-border">
       <div className="mx-auto max-w-[1400px] px-6 md:px-10">
         <SectionHeading
-          label="Selected Work — 03"
+          label="Selected Work — 04"
           title={
             <>
-              Three projects.
+              Four projects.
               <br />
               <em className="italic text-muted-foreground">From sketch to ship.</em>
             </>
