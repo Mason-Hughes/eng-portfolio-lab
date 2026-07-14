@@ -109,46 +109,60 @@ export const projects: Project[] = [
     slug: "powder-feeder",
     index: "02",
     title: "High-Pressure Powder Feeder",
-    subtitle: "Precision 25 µm powder feeding into pressurized gas flow",
+    subtitle: "High-Pressure Powder Feeder for Cold Spray Deposition",
     role: "Mechanical Design",
     year: "2024",
-    client: "Industrial Additive Manufacturing",
     summary:
-      "Pressure-rated powder feeder designed to deliver 25 µm powder smoothly and consistently into a high-pressure carrier gas stream, rated to 1 000 psi.",
+      "Cold spray requires introducing fine metal powder into the carrier gas at a steady, controllable rate. I designed and modeled a compact, high-pressure disk-metering powder feeder that delivers fine (~25 µm) copper powder into a ~1,000 psi carrier gas stream at a steady, controllable rate for cold spray deposition. The design combines a precision electromechanical metering drivetrain with a fully sealed pressure-vessel housing to minimize any irregularities in the flow of powder.",
     cover: powderFeederFull,
-    tags: ["Powder Handling", "High-Pressure Design", "Process Equipment", "DFM"],
+    tags: ["Powder Handling", "Pressure Vessel", "Cold Spray", "DFM"],
     problem:
-      "Fine powders — especially 25 µm particles — agglomerate, bridge, and pulsate when fed into a high-pressure gas stream. Existing feeders either can't hold pressure past a few hundred psi or introduce unacceptable variation in mass flow rate. The application needed a compact, shop-buildable feeder that maintains steady entrainment of 25 µm powder at up to 1 000 psi while staying clean enough for repeated disassembly and refill.",
-    approach: [
-      "Sized the pressure vessel and wetted parts for a 1 000 psi working pressure with an ASME VIII-1-inspired safety factor and all 316L stainless wetted surfaces.",
-      "Selected a precision auger metering screw with variable-speed gear drive to translate hopper level changes into a controlled, repeatable mass flow rate.",
-      "Designed a conical hopper with optional mechanical agitation to break arches and prevent bridging of fine, cohesive powder.",
-      "Integrated a fluidization chamber just upstream of the carrier gas inlet to precondition the powder and smooth pulsation before entrainment.",
-      "Specified high-pressure compression fittings, a rupture-disc/relief path, and an inline filter to protect downstream gas handling from stray fines.",
-      "Laid out the assembly for DFM: bolted flanges with O-ring grooves, clear service access, and minimal threaded holes into thin-walled pressure boundaries.",
+      "In cold spray additive manufacturing, any variation in powder feed rate, such as a pulsing or inconsistent flow, directly affects deposition efficiency, precision and final material properties. Fine copper powder (~25 µm) easily clogs, resists flow and damages bearings and electronics. The feeder also has to introduce that powder into ~1,000 psi carrier gas, meaning the entire mechanism has to double as a sealed pressure vessel without disturbing the internal flow path that actually entrains the powder.",
+    approach: [],
+    approachHeading: "Design & Approach",
+    sections: [
+      {
+        heading: "Disk Metering Mechanism",
+        body: [
+          "Powder sits in a hopper (two-piece cone, tube, and lid) and drops into small pockets machined into a rotating disk. As the disk turns, each pocket carries a fixed volume of powder from the hopper to the feeder outlet, making feed rate a direct function of disk speed. The powder is pulled out of the feeder outlet through a combination of gravity and venturi effect. The disk metering was chosen as the basis for the dispersion mechanism due to its combination of relatively low-cost, machining-simplicity and homogeneous-dispersion.",
+        ],
+        image: { src: powderFeederHopper },
+      },
+      {
+        heading: "Integrated Gear-Disk Drive",
+        body: [
+          "A NEMA 23 stepper motor directly drives an inline planetary gearbox, with the output shaft driving the pinion gear (via key & set-screws). The metering disk itself has teeth machined into its edge, doubling as a spur gear driven directly by the pinion. This results in a ~40:1 total reduction from motor to disk, converting the motor's native step resolution into fine, repeatable angular control at low disk speeds. Such fine powders call for tight tolerances between the faces of the housing and the metering disk. Therefore when initially validating the mechanism/assembly, there is slight uncertainty in the magnitude of friction the drivetrain must overcome to spin the disk. Maximum motor/gearbox torque was designed to remain incapable of shearing gear teeth, ensuring the failure point in the drivetrain is motor stalling, avoiding needless damage/remachining of components.",
+        ],
+        image: { src: powderFeederGearbox },
+      },
+      {
+        heading: "Pressure Vessel Design",
+        body: [
+          "The hopper, motor housing, and disk housing are all designed to structurally support and seal 1000 psi. The designs and hardware were validated to endure the induced stresses and maintain seal clamping force through a combination of hand calcs and ANSYS FEA. Every housing joint gets an individually sized O-ring (13 distinct sizes, 25 O-rings total across the assembly). The seals are especially important, as leaks at any interface could reduce or eliminate the venturi effect, or create enough back-pressure to overcome gravity feeding entirely. This results in powder feed rates that are either inconsistent or completely stalled. This led to decisions such as creating an enclosure to keep the motor inside the pressurized zone. Rather than seal a rotating shaft crossing through the pressure wall, the motor sits fully inside the sealed housing, using a hermetic electrical feedthrough for its 4 wires.",
+        ],
+        image: { src: powderFeederGearDetail },
+      },
+      {
+        heading: "Manufacturability, Assembly & Serviceability",
+        body: [
+          "Components like the motor and bearings are selected to be resistant to fine dust/powder, but not fully rated dust proof components, to save on costs. The components are therefore also partially protected by various aspects of the design. For example, initial feeder pressurization does not utilize the powder outlet, but an inlet on top of the motor housing instead. This helps flush powder out of the housing, rather than pushing it in with the initial burst of gas. However, the components are still expected to wear faster than they would in a normal operating environment. Therefore there is heavy emphasis on serviceability, in which parts can be easily replaced and accessed through minimal disassembly.",
+          "Powder is loaded through a high-pressure on/off ball valve in the hopper lid rather than by removing the lid itself. This is a small change that turns each refill into a quick open/close instead of unscrewing and re-torquing every lid bolt, while still ensuring a seal that is strong and reliable.",
+        ],
+      },
     ],
-    outcome: [
-      "Achieved a smooth, non-pulsating feed of 25 µm powder into a 1 000 psi carrier gas stream.",
-      "Held the target mass-flow tolerance across hopper-fill level and pressure transients.",
-      "Delivered a clean BOM and fabrication package (vessel, flanges, auger, drive mount) suitable for in-house or supplier build.",
+    status: "Design and structural validation are complete; the feeder is currently in fabrication.",
+    skills: [
+      "Detailed CAD modeling & assembly (Onshape)",
+      "Hand calculations and FEA for structural design & analysis (ANSYS)",
+      "Full CAM, CNC machining (MasterCAM, Haas VF-2SS)",
+      "Component sourcing, BOM development, and multi-vendor procurement",
+      "Full mechanical design for pressure vessels, precision metering mechanisms and fine-powder flow behavior",
     ],
-    specs: [
-      { label: "Powder Size", value: "25 µm" },
-      { label: "Working Pressure", value: "1 000 psi" },
-      { label: "Wetted Material", value: "316L stainless steel" },
-      { label: "Metering Method", value: "Precision auger screw" },
-      { label: "Flow Conditioning", value: "Conical hopper + fluidization chamber" },
-      { label: "Drive", value: "Variable-speed gear motor" },
-      { label: "Sealing", value: "O-ring flanges + high-pressure compression fittings" },
-      { label: "Tools", value: "SolidWorks · Hand calcs" },
-    ],
-    gallery: [
-      { src: powderFeederFull, caption: "Section view — powder hopper column (left) and gearbox / motor column (right), tied together by the base plate." },
-      { src: powderFeederHopper, caption: "Hopper column cutaway — pressure-rated housing over the conical hopper that drops powder through the metering disc." },
-      { src: powderFeederGearbox, caption: "Gearbox column cutaway — motor and reduction stack housed in the pressure-rated right-hand column." },
-      { src: powderFeederGearDetail, caption: "Metering plate detail — driven gear (green) with through-hole pattern and intermediate pinion (blue) transferring torque from the motor." },
-    ],
+    outcome: [],
+    specs: [],
+    gallery: [],
   },
+
   {
     slug: "copper-gas-heater",
     index: "03",
