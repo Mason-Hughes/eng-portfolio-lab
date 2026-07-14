@@ -26,6 +26,12 @@ import gosselinWorkspace from "@/assets/gosselin/img-10.jpg";
 
 export type ProjectSpec = { label: string; value: string };
 
+export type ProjectSection = {
+  heading: string;
+  body: string[];
+  image?: { src: string; caption?: string };
+};
+
 export type Project = {
   slug: string;
   index: string;
@@ -43,7 +49,12 @@ export type Project = {
   specs: ProjectSpec[];
   gallery: { src: string; caption: string }[];
   video?: { embedUrl: string; caption: string };
+  approachHeading?: string;
+  sections?: ProjectSection[];
+  status?: string;
+  skills?: string[];
 };
+
 
 export const projects: Project[] = [
   {
