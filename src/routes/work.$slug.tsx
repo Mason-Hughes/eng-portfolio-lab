@@ -185,23 +185,25 @@ function ProjectDetail() {
 
 
       {/* Specs */}
-      <section className="relative py-24 md:py-32 border-b border-border bg-card/40">
-        <div className="mx-auto max-w-[1400px] px-6 md:px-10">
-          <SectionBlock label="Key Specs" title="The numbers.">
-            <ul className="divide-y divide-border border-y border-border">
-              {project.specs.map((s) => (
-                <li
-                  key={s.label}
-                  className="grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-6 py-5"
-                >
-                  <span className="eyebrow md:col-span-1">{s.label}</span>
-                  <span className="md:col-span-2 text-foreground/90">{s.value}</span>
-                </li>
-              ))}
-            </ul>
-          </SectionBlock>
-        </div>
-      </section>
+      {project.specs.length > 0 && (
+        <section className="relative py-24 md:py-32 border-b border-border bg-card/40">
+          <div className="mx-auto max-w-[1400px] px-6 md:px-10">
+            <SectionBlock label="Key Specs" title="The numbers.">
+              <ul className="divide-y divide-border border-y border-border">
+                {project.specs.map((s) => (
+                  <li
+                    key={s.label}
+                    className="grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-6 py-5"
+                  >
+                    <span className="eyebrow md:col-span-1">{s.label}</span>
+                    <span className="md:col-span-2 text-foreground/90">{s.value}</span>
+                  </li>
+                ))}
+              </ul>
+            </SectionBlock>
+          </div>
+        </section>
+      )}
 
       {/* Gallery */}
       {project.gallery.length > 0 && (
@@ -251,23 +253,59 @@ function ProjectDetail() {
         </section>
       )}
 
+      {/* Status */}
+      {project.status && (
+        <section className="relative py-24 md:py-32 border-b border-border bg-card/40">
+          <div className="mx-auto max-w-[1400px] px-6 md:px-10">
+            <SectionBlock label="Status" title="Where it stands.">
+              <p className="text-lg md:text-xl text-foreground/90 leading-relaxed">
+                {project.status}
+              </p>
+            </SectionBlock>
+          </div>
+        </section>
+      )}
+
       {/* Outcome */}
-      <section className="relative py-24 md:py-32 border-b border-border">
-        <div className="mx-auto max-w-[1400px] px-6 md:px-10">
-          <SectionBlock label="Outcome" title="Result.">
-            <ul className="space-y-5">
-              {project.outcome.map((o, i) => (
-                <li key={i} className="grid grid-cols-[auto_1fr] gap-5 items-start">
-                  <span className="text-primary mt-2.5 leading-none" aria-hidden>
-                    ●
-                  </span>
-                  <p className="text-lg text-foreground/90 leading-relaxed">{o}</p>
-                </li>
-              ))}
-            </ul>
-          </SectionBlock>
-        </div>
-      </section>
+      {project.outcome.length > 0 && (
+        <section className="relative py-24 md:py-32 border-b border-border">
+          <div className="mx-auto max-w-[1400px] px-6 md:px-10">
+            <SectionBlock label="Outcome" title="Result.">
+              <ul className="space-y-5">
+                {project.outcome.map((o, i) => (
+                  <li key={i} className="grid grid-cols-[auto_1fr] gap-5 items-start">
+                    <span className="text-primary mt-2.5 leading-none" aria-hidden>
+                      ●
+                    </span>
+                    <p className="text-lg text-foreground/90 leading-relaxed">{o}</p>
+                  </li>
+                ))}
+              </ul>
+            </SectionBlock>
+          </div>
+        </section>
+      )}
+
+      {/* Skills Demonstrated */}
+      {project.skills && project.skills.length > 0 && (
+        <section className="relative py-24 md:py-32 border-b border-border">
+          <div className="mx-auto max-w-[1400px] px-6 md:px-10">
+            <SectionBlock label="Skills Demonstrated" title="What it took.">
+              <ul className="divide-y divide-border border-y border-border">
+                {project.skills.map((s, i) => (
+                  <li key={i} className="grid grid-cols-[auto_1fr] gap-6 py-5 items-baseline">
+                    <span className="font-mono text-xs text-primary tabular-nums">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <span className="text-foreground/90">{s}</span>
+                  </li>
+                ))}
+              </ul>
+            </SectionBlock>
+          </div>
+        </section>
+      )}
+
 
       {/* Next project */}
       <section className="relative py-24 md:py-32 border-b border-border">
