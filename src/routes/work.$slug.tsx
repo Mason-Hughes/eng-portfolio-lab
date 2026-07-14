@@ -115,22 +115,74 @@ function ProjectDetail() {
       </section>
 
       {/* Approach */}
-      <section className="relative py-24 md:py-32 border-b border-border">
-        <div className="mx-auto max-w-[1400px] px-6 md:px-10">
-          <SectionBlock label="Approach" title="What I did.">
-            <ol className="space-y-6">
-              {project.approach.map((step, i) => (
-                <li key={i} className="grid grid-cols-[auto_1fr] gap-6 md:gap-8 items-start">
-                  <span className="font-mono text-xs text-primary mt-1.5 tabular-nums">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <p className="text-foreground/90 leading-relaxed">{step}</p>
-                </li>
-              ))}
-            </ol>
-          </SectionBlock>
-        </div>
-      </section>
+      {project.approach.length > 0 && (
+        <section className="relative py-24 md:py-32 border-b border-border">
+          <div className="mx-auto max-w-[1400px] px-6 md:px-10">
+            <SectionBlock label="Approach" title="What I did.">
+              <ol className="space-y-6">
+                {project.approach.map((step, i) => (
+                  <li key={i} className="grid grid-cols-[auto_1fr] gap-6 md:gap-8 items-start">
+                    <span className="font-mono text-xs text-primary mt-1.5 tabular-nums">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <p className="text-foreground/90 leading-relaxed">{step}</p>
+                  </li>
+                ))}
+              </ol>
+            </SectionBlock>
+          </div>
+        </section>
+      )}
+
+      {/* Sections (interleaved subheadings + inline images) */}
+      {project.sections && project.sections.length > 0 && (
+        <section className="relative py-24 md:py-32 border-b border-border">
+          <div className="mx-auto max-w-[1400px] px-6 md:px-10">
+            <SectionBlock label={project.approachHeading ?? "Approach"} title="What I did.">
+              <div className="space-y-16">
+                {project.sections.map((s, i) => (
+                  <div key={i} className="space-y-6">
+                    <div className="flex items-baseline gap-4">
+                      <span className="font-mono text-xs text-primary tabular-nums">
+                        {String(i + 1).padStart(2, "0")}
+                      </span>
+                      <h3 className="display text-2xl md:text-3xl">
+                        {s.heading}
+                        <span className="text-primary">.</span>
+                      </h3>
+                    </div>
+                    <div className="space-y-5 pl-0 md:pl-10">
+                      {s.body.map((p, j) => (
+                        <p key={j} className="text-foreground/90 leading-relaxed">
+                          {p}
+                        </p>
+                      ))}
+                      {s.image && (
+                        <figure className="pt-4">
+                          <div className="relative overflow-hidden rounded-sm border border-border">
+                            <img
+                              src={s.image.src}
+                              alt={s.image.caption ?? s.heading}
+                              loading="lazy"
+                              className="w-full h-auto object-cover"
+                            />
+                          </div>
+                          {s.image.caption && (
+                            <figcaption className="mt-3 font-mono text-xs text-muted-foreground tracking-wide">
+                              {s.image.caption}
+                            </figcaption>
+                          )}
+                        </figure>
+                      )}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </SectionBlock>
+          </div>
+        </section>
+      )}
+
 
       {/* Specs */}
       <section className="relative py-24 md:py-32 border-b border-border bg-card/40">
