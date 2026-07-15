@@ -104,15 +104,18 @@ function ProjectDetail() {
       </section>
 
       {/* Problem */}
-      <section className="relative py-24 md:py-32 border-b border-border">
-        <div className="mx-auto max-w-[1400px] px-6 md:px-10">
-          <SectionBlock label="Problem" title="The brief.">
-            <p className="text-lg md:text-xl text-foreground/90 leading-relaxed">
-              {project.problem}
-            </p>
-          </SectionBlock>
-        </div>
-      </section>
+      {project.problem && (
+        <section className="relative py-24 md:py-32 border-b border-border">
+          <div className="mx-auto max-w-[1400px] px-6 md:px-10">
+            <SectionBlock label="Problem" title="The brief.">
+              <p className="text-lg md:text-xl text-foreground/90 leading-relaxed">
+                {project.problem}
+              </p>
+            </SectionBlock>
+          </div>
+        </section>
+      )}
+
 
       {/* Approach */}
       {project.approach.length > 0 && (
