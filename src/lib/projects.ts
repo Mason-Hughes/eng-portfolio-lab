@@ -61,49 +61,77 @@ export const projects: Project[] = [
     slug: "gosselin-platform",
     index: "01",
     title: "Gosselin Platform",
-    subtitle: "Novel 9-DOF Kinematically Redundant Parallel Robot",
+    subtitle: "Novel, 9 Degree of Freedom, Parallel Robot",
     role: "Mechanical Design & Fabrication Lead",
     year: "2023",
     client: "UBC Advanced Robotics Laboratory",
     summary:
-      "Physical prototype of a novel 9-DOF parallel robot — a redundant evolution of the Stewart platform designed to avoid kinematic singularities across a vastly larger workspace.",
+      "In 2016, Dr. Clément M. Gosselin from Université Laval proposed a novel architecture of kinematically redundant spatial parallel mechanisms. This architecture, broadly coined as the “Gosselin platform” (GP), is built upon the family of robots similar to the popular “Gough-Stewart platform” (G-SP). The key difference being the GP includes three additional redundant linear actuators, increasing its degrees of freedom (DoF) from 6 to 9, allowing the platform to avoid kinematic singularities throughout a much larger range of motion.",
     cover: gosselinAssemblyClean,
     tags: ["Parallel Robotics", "SolidWorks", "MATLAB", "Mechanism Design"],
     problem:
-      "Traditional Stewart platforms hit kinematic singularities long before reaching the orientations needed for many manipulation tasks. The Advanced Robotics Lab at UBC needed the first physical realization of a Gosselin platform — a kinematic architecture proposed theoretically in 2016 that adds three redundant linear actuators to dramatically expand the singularity-free workspace. My team was tasked with taking the math off the page and turning it into a functioning, payload-carrying mechanism.",
-    approach: [
-      "Selected linear actuators for the mechanism's nine prismatic joints, balancing stroke length, force, footprint, and cost.",
-      "Built a fully parametric SolidWorks model of the assembly, driving downstream detail design from a single source of truth.",
-      "Authored a MATLAB kinematic simulation to validate the singularity-avoidant workspace before committing to fabrication.",
-      "Designed every load-bearing component in-house: end-effector, spherical joints, non-redundant couplings, revolute joints, universal joints, base platform, and pedestal.",
-      "Managed manufacturing and assembly across machined, fabricated, and off-the-shelf components within a $30k+ project budget.",
+      "In 2023, the Advanced Robotics Laboratory at UBC tasked my team with developing a full prototype. The project’s challenge was designing a system centered around reducing mechanical interference to reach the following goals: 60°–90° of tilt (measured from the end-effector to the X-Y plane), 75°–80° of twist (measured about the Z axis), 30–50 cm of travel (along the Z axis), and 35–50 kg payload capacity.",
+    approach: [],
+    approachHeading: "Approach",
+    sections: [
+      {
+        heading: "Approach",
+        body: [
+          "The project was broken down into major components five steps:",
+          "• Linear actuator selection",
+          "• Robot simulation — 3D modeling in CAD, kinematic simulation in MATLAB",
+          "• Detailed design of all components (end-effector, base, and three joint types)",
+          "• Fabrication and assembly of the mechanism",
+          "• Validation of rotational and translational capabilities",
+        ],
+        image: { src: gosselinAssemblyAnnotated, caption: "Full assembly — labeled actuators, joints, end-effector, and base platform." },
+      },
+      {
+        heading: "Result",
+        body: [
+          "Maximum movement simulated and manually manipulated on the physical build, reached 180° of twist (>2× the goal), 90° of tilt (high end of goal range) and 40 cm of vertical travel. The maximum payload is 40 kg, determined by maximum actuator power. The completed project carried a total budget of $30k+.",
+        ],
+        image: { src: gosselinAssemblyClean, caption: "Full assembly." },
+      },
+      {
+        heading: "Spherical Joints",
+        body: ["End effector support while allowing for rotation along 3 axes."],
+        image: { src: gosselinSpherical },
+      },
+      {
+        heading: "Revolute Joints",
+        body: ["Join redundant actuators at the ends of their stroke, while allowing free rotation about the pinned axis."],
+        image: { src: gosselinRevolute },
+      },
+      {
+        heading: "Universal Joints",
+        body: ["Supporting all actuators and facilitating rotation along 2 axes."],
+        image: { src: gosselinUniversal, caption: "Universal joint." },
+      },
+      {
+        heading: "Universal Joint — Callouts",
+        body: ["Pillow-block bearing, shaft clamp, U-bracket, and sleeve bearing detail."],
+        image: { src: gosselinUniversalCallout },
+      },
+      {
+        heading: "Base Platform",
+        body: ["Mounting all universal joints in a common plane."],
+        image: { src: gosselinBase },
+      },
+      {
+        heading: "Base Platform — Drawing",
+        body: ["Manufacturing drawing for the base platform."],
+        image: { src: gosselinBaseDrawing },
+      },
+      {
+        heading: "MATLAB Script",
+        body: ["Supplying positional data for singularity-avoidant, full assembly movement control."],
+        image: { src: gosselinWorkspace, caption: "Workspace polar diagram for the base layout." },
+      },
     ],
-    outcome: [
-      "Achieved 180° of twist about the Z axis — more than 2× the original 75–80° target.",
-      "Achieved a full 90° of tilt from the end-effector to the X-Y plane, meeting the upper bound of the spec.",
-      "MATLAB control script delivers singularity-avoidant trajectories across the full envelope.",
-      "Functioning physical platform delivered to UBC ARL for ongoing research use.",
-    ],
-    specs: [
-      { label: "Degrees of Freedom", value: "9 (6 task + 3 redundant)" },
-      { label: "Twist (Z-axis)", value: "180° achieved · 75–80° target" },
-      { label: "Tilt (from X-Y)", value: "90° achieved · 60–90° target" },
-      { label: "Z-axis Travel", value: "30–50 cm" },
-      { label: "Payload Capacity", value: "35–50 kg" },
-      { label: "Project Budget", value: "$30k+" },
-      { label: "Tools", value: "SolidWorks · MATLAB" },
-      { label: "Client", value: "UBC Advanced Robotics Lab" },
-    ],
-    gallery: [
-      { src: gosselinAssemblyAnnotated, caption: "Full assembly — labeled actuators, joints, end-effector, and base platform." },
-      { src: gosselinUniversal, caption: "Universal joint — supports each actuator with 2-axis rotation at the base." },
-      { src: gosselinUniversalCallout, caption: "Universal joint exploded callouts — pillow-block bearing, shaft clamp, U-bracket, sleeve bearing." },
-      { src: gosselinSpherical, caption: "Spherical joint — supports the end-effector with 3-axis rotation." },
-      { src: gosselinRevolute, caption: "Revolute joint — couples redundant actuators at stroke ends with free pinned rotation." },
-      { src: gosselinBase, caption: "Base platform — mounts all nine universal joints in a common plane." },
-      { src: gosselinBaseDrawing, caption: "Base platform — manufacturing drawing." },
-      { src: gosselinWorkspace, caption: "Workspace polar diagram for the base layout." },
-    ],
+    outcome: [],
+    specs: [],
+    gallery: [],
   },
   {
     slug: "powder-feeder",
@@ -162,11 +190,10 @@ export const projects: Project[] = [
     specs: [],
     gallery: [],
   },
-
   {
     slug: "copper-gas-heater",
     index: "03",
-    title: "Copper Gas Heater",
+    title: "Heat Exchanger",
     subtitle: "18 kW modular gas heater for a cold spray system",
     role: "Mechanical Design & Thermal Analysis",
     year: "2025",
@@ -174,16 +201,63 @@ export const projects: Project[] = [
       "Cold spray utilizes high speed gas to accelerate metal particles to critical velocities that allow for kinetic bonding at impact with metal substrates. The gas itself is typically accelerated using a converging-diverging nozzle, in which the exit velocity is proportional to the square root of the gas inlet temperature. Therefore one of the most important components in a cold spray system is the gas heater. This heater is responsible for heating up a high flow, high pressure stream of gas. The heater utilizes 18kW of 120V electricity, to bring air from 0°C to 440°C, at 1000 psi. The design of the heater was tightly constrained by cost and manufacturability, ultimately resulting in a modular design of stacked plates clamped together with threaded rods. The total cost was ~$3.5k per heater.",
     cover: copperHeFinsCad,
     tags: ["Heat Transfer", "Pressure Sealing", "Thermal Stress", "CFD", "DFM"],
-    problem:
-      "Cold spray utilizes high speed gas to accelerate metal particles to critical velocities that allow for kinetic bonding at impact with metal substrates. The gas itself is typically accelerated using a converging-diverging nozzle, in which the exit velocity is proportional to the square root of the gas inlet temperature. Therefore one of the most important components in a cold spray system is the gas heater. This heater is responsible for heating up a high flow, high pressure stream of gas. The heater utilizes 18kW of 120V electricity, to bring air from 0°C to 440°C, at 1000 psi. The design of the heater was tightly constrained by cost and manufacturability, ultimately resulting in a modular design of stacked plates clamped together with threaded rods. The total cost was ~$3.5k per heater.",
-    approach: [
-      "Fins: The fins pictured below are made of nickel plated copper. The copper ensures high conductivity, while the nickel plating protects from long term corrosion due to oxidation at high temperatures. The outer ring of holes are used in the final assembly for electric heat cartridges (6) and threaded rods (12 + 6 outside the disks due to nut spacing requirements). The groove is for seating the gasket, a spiral wound stainless steel gasket with a graphite filling. The internal slots operate as channels/fins for the gas to travel through. The slot width/sizing was limited on the economics of its manufacturability, and the spacing was iteratively optimized using ANSYS CFD & FEA.",
-      "Lids: The lids replicate the bolt, cartridge and gasket spacing of the fins, while replacing the internal fins with a cone to channel the gas to/from the entry/exit points. This geometrical alteration therefore introduces much higher stresses of the disk and required a swap to stainless steel 304. The lower thermal conductivity of the SS304 introduced higher thermal stresses, characterized by the external cartridge heating and internal gas cooling. These were quantified through ANSYS CFD in order to properly validate the design. Manifolds were also introduced to the entry and exit points to help guide the flow of air, avoiding excess pressure losses.",
-      "Hardware: All the hardware was selected to meet the temperature and pressure requirements of the heater. While this means selecting components that meet the strength requirements at high operating temperatures, this also presents various other challenges to design for. For example, with a total heater length of ~9.5\", the thermal expansion made rod pre-tensioning critical. The rod force must ensure proper gasket stress at low temperatures, while avoiding plastic deformation when fully stretched at maximum temperature.",
-      "Sensors/controls: Heaters operated by setting a desired temperature in our open source printer control software (Klipper) and utilizing a PID loop driven by implanted thermistors. The thermistors were embedded in one copper plate on each of the heaters, adjacent to a cartridge. The PID then drove SSRs to control the input power.",
-    ],
-    outcome: [
-      "The final setup consists of 4 heaters in series, resulting in a gas output temperature of ~440°C. The heaters have worked reliably in 250+ test cycles, without any degradation of performance.",
+    problem: "",
+    approach: [],
+    approachHeading: "Process and Decisions",
+    sections: [
+      {
+        heading: "Fins",
+        body: [
+          "The fins pictured below are made of nickel plated copper. The copper ensures high conductivity, while the nickel plating protects from long term corrosion due to oxidation at high temperatures. The outer ring of holes is used in the final assembly for electric heat cartridges (6) and threaded rods (12 + 6 outside the disks due to nut spacing requirements). The groove is for seating the gasket, a spiral wound stainless steel gasket with a graphite filling. The internal slots operate as channels/fins for the gas to travel through. The slot width/sizing was limited by the economics of its manufacturability, and the spacing was iteratively optimized using ANSYS CFD & FEA.",
+        ],
+        image: { src: copperHeFinsCad, caption: "Nickel-plated copper fin — CAD view." },
+      },
+      {
+        heading: "Fin — Manufactured",
+        body: [],
+        image: { src: copperHeFinPhoto, caption: "Machined nickel-plated copper fin." },
+      },
+      {
+        heading: "Lids",
+        body: [
+          "The lids replicate the bolt, cartridge and gasket spacing of the fins, while replacing the internal fins with a cone to channel the gas to/from the entry/exit points. This geometrical alteration therefore introduced much higher stresses in the disk and required a swap to stainless steel 304. The lower thermal conductivity of the SS304 introduced higher thermal stresses, characterized by the external cartridge heating and internal gas cooling. These were quantified through ANSYS CFD & FEA in order to properly validate the design. Manifolds were also introduced to the entry and exit points to help guide the flow of air, avoiding excess pressure losses.",
+        ],
+        image: { src: copperHeLidSection, caption: "SS 304 lid section — internal cone channels gas to the entry/exit ports." },
+      },
+      {
+        heading: "Lid — Isometric",
+        body: [],
+        image: { src: copperHeLidIso, caption: "Bolt, cartridge and gasket spacing mirrors the fin geometry." },
+      },
+      {
+        heading: "Lid — Manifold Detail",
+        body: [],
+        image: { src: copperHeLidDetail, caption: "Manifold integration at the gas entry/exit points to reduce pressure losses." },
+      },
+      {
+        heading: "Hardware",
+        body: [
+          "All the hardware was selected to meet the temperature and pressure requirements of the heater. While this means selecting components that meet the strength requirements at high operating temperatures, this also presents various other challenges to design for. For example, with a total heater length of ~9.5”, the thermal expansion made rod pre-tensioning critical. The rod force must ensure proper gasket stress at low temperatures, while avoiding plastic deformation when fully stretched at maximum temperature.",
+        ],
+      },
+      {
+        heading: "Sensors/controls",
+        body: [
+          "Heaters operated by setting a desired temperature in our control software (open source customizable software; Klipper) that utilized a PID loop driven by embedded thermistors. The thermistors were implanted in one copper plate on each of the heaters, adjacent to a cartridge. The PID then drove SSRs to control the input power supplied to the cartridges.",
+        ],
+      },
+      {
+        heading: "Outcome and measurable results",
+        body: [
+          "The final setup consists of 4 heaters in series, resulting in a gas output reaching the target temperature of ~440°C. Across 250+ test cycles, the heaters continue to run reliably with no degradation in performance.",
+        ],
+        image: { src: copperHeFinalSetup, caption: "Four heaters plumbed in series." },
+      },
+      {
+        heading: "Final Build",
+        body: [],
+        image: { src: copperHeFinalTwo, caption: "Heater stack in operation — threaded rods, gasketed fin/lid stack, and cartridge wiring." },
+      },
     ],
     specs: [
       { label: "Copper Round Bars", value: "24× ⌀6\" × 1\", nickel plated" },
@@ -197,20 +271,17 @@ export const projects: Project[] = [
       { label: "SSRs", value: "8× 120V DC/AC (4× 40A, 4× 15A)" },
       { label: "Controller", value: "1× M8P Manta Control Board" },
     ],
-    gallery: [
-      { src: copperHeFinsCad, caption: "Nickel-plated copper fin — CAD view of the internal slot pattern, cartridge/rod holes, and gasket groove." },
-      { src: copperHeFinPhoto, caption: "Manufactured fin — nickel-plated copper disk with machined flow channels." },
-      { src: copperHeLidSection, caption: "Lid section — SS 304 cap plate with internal cone channeling gas to/from the entry/exit ports." },
-      { src: copperHeLidIso, caption: "Lid isometric — bolt, cartridge, and gasket spacing mirrors the fin geometry." },
-      { src: copperHeLidDetail, caption: "Lid detail — manifold integration at the gas entry/exit points to reduce pressure losses." },
-      { src: copperHeFinalSetup, caption: "Final setup — four heaters plumbed in series to deliver ~440 °C gas output." },
-      { src: copperHeFinalTwo, caption: "Heater stack in operation — threaded rods, gasketed fin/lid stack, and cartridge wiring." },
+    skills: [
+      "Thermal system design (ANSYS CFD & FEA)",
+      "Material selection (strength, conductivity & corrosion)",
     ],
+    outcome: [],
+    gallery: [],
   },
   {
     slug: "formula-electric-cooling",
     index: "04",
-    title: "Formula Electric Cooling System",
+    title: "Formula Electric Cooling",
     subtitle: "Cooling system characterization and optimization for UBC Formula Electric",
     role: "Thermal Systems Lead",
     year: "2022",
@@ -221,38 +292,72 @@ export const projects: Project[] = [
     tags: ["Thermal Management", "Testing & Characterization", "DFM", "FSAE Rules"],
     problem:
       "The car's current cooling system is effective, but over-specced, with an off-the-shelf radiator considerably larger than needed. This ensures reliable cooling, but carries a real cost in weight, aerodynamic drag, and packaging flexibility. The underlying issue was that no one had measured the system's true thermal requirements, leading to hardware specified with large, conservative margins. My goal was to establish what the system genuinely required and redesign the hardware accordingly.",
-    approach: [
-      "Motor & Inverter Temperature vs Efficiency: The car is run on the dyno at a constant power output, with the radiator fan running at full capacity. Once the motor & inverter temperatures reach equilibrium, the temperature and input power is recorded and used to find overall system efficiency at that specific temperature. This process is then repeated with the fans operating at 75% and 50% capacity, to find two new efficiency/temperature data points. Extrapolating these data points allows for defining the boundaries of a temperature window with proper efficiency.",
-      "Motor & Inverter Temperature vs Heat Dissipation: This test is run in parallel with the efficiency test, and utilizes the components' internal sensors together with thermocouples on the coolant lines. This measures the influx of heat introduced to the system by each component at various temperatures. Approximating a function for this relationship allows for the quantification of the total heat the system must dissipate.",
-      "Radiator Heat Dissipation vs Fin Area: The radiator is mounted in a wind tunnel perpendicular to the flow of air, with water run through it at a high, constant temperature. The water temperature is measured at the radiator's inlet and outlet as portions of the frontal area are covered to alter surface area available for heat dissipation. This allows for the finalization of the radiator's frontal area sizing, in which governing heat-transfer equations are used to convert bench readings into accurate predictions for competition-day air temperature and pressure.",
-      "A ribbon fin radiator core is reduced to size: A full-size automotive radiator core is cut down to the required frontal area, with all cuts kept parallel to the tubes so they stay welded to the same end plate, vastly reducing manufacturing complexity. This is a low-cost method of obtaining a complex fin pattern like the ribbon fin core.",
-      "Carbon fibre end caps are layed: Carbon-fibre shells are laid in with an aluminium sheet-metal base and tube fittings to create a strong, light, watertight structure to connect core tubes. The sheet metal base extends out with tabs to mount to the chassis, avoiding additional brackets.",
-      "Thermoformed fan shroud: A sheet-metal frame provides the shroud structure and holds the weight of the two fans. The thermoformed plastic cover ensures the airflow is properly channeled through the radiator.",
-      "Every element was designed to follow relevant FSAE technical rules, including wheel-clearance keep-out zones, driver thermal protection, firewall requirements, direct-chassis mounting, and coolant sealing.",
+    approach: [],
+    approachHeading: "Characterizing the system through testing",
+    sections: [
+      {
+        heading: "Motor & Inverter Temperature vs Efficiency",
+        body: [
+          "The car is run on the dyno at a constant power output, with the radiator fan running at full capacity. Once the motor & inverter temperatures reach equilibrium, the temperature and input power is recorded and used to find overall system efficiency at that specific temperature. This process is then repeated with the fans operating at 75% and 50% capacity, to find two new efficiency/temperature data points. Extrapolating these data points allows for defining the boundaries of a temperature window with proper efficiency.",
+        ],
+      },
+      {
+        heading: "Motor & Inverter Temperature vs Heat Dissipation",
+        body: [
+          "This test is capable of being run in parallel with test #1, and utilizes the components' internal sensors together with thermocouples on the coolant lines. This simply measures the influx of heat introduced to the system by each component at various temperatures. Approximating a function for this relationship allows for the quantification of the total heat the system must dissipate.",
+        ],
+      },
+      {
+        heading: "Radiator Heat Dissipation vs Fin Area",
+        body: [
+          "The radiator used will be mounted in a wind tunnel perpendicular to the flow of air, with water run through it at a high, constant temperature. The water temperature is then measured at the radiator’s inlet and outlet, as portions of the frontal area are covered to alter surface area available for heat dissipation. This allows for the finalization of the radiator’s frontal area sizing, in which governing heat-transfer equations are used to convert bench readings into accurate predictions for competition-day air temperature and pressure.",
+          "Together these define the system's real operating window, heat load, and the minimum hardware needed to serve it.",
+          "With the requirements characterized, the radiator was the component to rework, since it was the system's oversized element and the one that most directly sets cooling capacity. I produced a complete design and manufacturing plan in which:",
+        ],
+      },
+      {
+        heading: "A ribbon fin radiator core is reduced to size",
+        body: [
+          "A full-size automotive radiator core is cut down to the required frontal area, with all cuts kept parallel to the tubes so they stay welded to the same end plate, vastly reducing manufacturing complexity. This is a low-cost method of obtaining a complex fin pattern like the ribbon fin core.",
+        ],
+        image: { src: feRadiatorCoreCut, caption: "Ribbon-fin core reduced to the required frontal area." },
+      },
+      {
+        heading: "Carbon fibre end caps are layed",
+        body: [
+          "Carbon-fibre shells laid in with an aluminium sheet-metal base and tube fittings to create strong, light, watertight structure to connect core tubes. The sheet metal base extends out with tabs to mount to the chassis, avoiding additional brackets.",
+        ],
+        image: { src: feRadiatorAssemblyFront, caption: "Radiator assembly — front view." },
+      },
+      {
+        heading: "End Cap — Detail",
+        body: [],
+        image: { src: feRadiatorEndCap, caption: "Carbon-fibre shell with aluminium sheet-metal base and tube fittings." },
+      },
+      {
+        heading: "Assembly — Isometric",
+        body: [],
+        image: { src: feRadiatorAssemblyIso, caption: "Complete downsized radiator ready for packaging." },
+      },
+      {
+        heading: "Thermoformed fan shroud",
+        body: [
+          "A sheet-metal frame provides the shroud structure and holds the weight of the two fans. The thermoformed plastic cover ensures the airflow is properly channeled through the radiator.",
+        ],
+        image: { src: feRadiatorFanShroud, caption: "Sheet-metal frame with thermoformed plastic cover." },
+      },
+      {
+        heading: "Rules Compliance",
+        body: [
+          "Every element was designed to follow relevant FSAE technical rules, including wheel-clearance keep-out zones, driver thermal protection, firewall requirements, direct-chassis mounting, and coolant sealing.",
+        ],
+      },
     ],
-    outcome: [
-      "Defined the system's real operating window, heat load, and the minimum hardware needed to serve it.",
-      "Produced a complete design and manufacturing plan for a downsized, rules-compliant radiator assembly.",
-      "Trims weight and drag without compromising the system's ability to keep the motors and inverters in an efficient operating range.",
-    ],
-    specs: [
-      { label: "Application", value: "UBC Formula Electric drivetrain" },
-      { label: "Cooled Components", value: "2× motors + 2× inverters" },
-      { label: "Core Type", value: "Ribbon fin automotive radiator core" },
-      { label: "End Caps", value: "Carbon-fibre shells with aluminium sheet-metal base" },
-      { label: "Shroud", value: "Sheet-metal frame + thermoformed plastic cover" },
-      { label: "Test Equipment", value: "Dynamometer · Wind tunnel" },
-      { label: "Compliance", value: "FSAE wheel-clearance, thermal protection, firewall, mounting, sealing" },
-      { label: "Tools", value: "SolidWorks · Hand calcs" },
-    ],
-    gallery: [
-      { src: feRadiatorCoreCut, caption: "Radiator core cut-down — full-size automotive ribbon-fin core reduced to the required frontal area, with cuts kept parallel to the tubes." },
-      { src: feRadiatorAssemblyFront, caption: "Radiator assembly front view — reduced core with end caps and chassis mounting tabs." },
-      { src: feRadiatorEndCap, caption: "End cap detail — carbon-fibre shell with aluminium sheet-metal base and tube fittings." },
-      { src: feRadiatorAssemblyIso, caption: "Radiator assembly isometric — complete downsized radiator ready for packaging." },
-      { src: feRadiatorFanShroud, caption: "Fan shroud — sheet-metal frame carrying two fans and a thermoformed plastic cover to channel airflow through the radiator." },
-    ],
+    outcome: [],
+    specs: [],
+    gallery: [],
   },
 ];
+
 
 export const getProject = (slug: string) => projects.find((p) => p.slug === slug);
