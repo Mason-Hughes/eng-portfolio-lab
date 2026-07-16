@@ -240,7 +240,7 @@ function ProjectDetail() {
         <section className="relative py-24 md:py-32 border-b border-border bg-card/40">
           <div className="mx-auto max-w-[1080px] px-6 md:px-10">
             <SectionBlock label="Assembly" title="Full build in motion.">
-              <div className="relative aspect-video overflow-hidden rounded-sm border border-border bg-black">
+              <div className="relative mx-auto w-full max-w-[600px] aspect-[9/16] overflow-hidden rounded-sm border border-border bg-black">
                 <iframe
                   src={`${project.video.embedUrl}${project.video.embedUrl.includes("?") ? "&" : "?"}autoplay=1&loop=1&mute=1`}
                   title={project.video.caption}
