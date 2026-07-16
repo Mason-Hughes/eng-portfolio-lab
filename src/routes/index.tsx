@@ -1,9 +1,25 @@
+/* =========================================================================
+ * HOMEPAGE — this is the DEFAULT / MAIN PAGE of the site.
+ *
+ * URL:   "/"  (e.g. https://yourdomain.com/  →  renders this file)
+ * File:  src/routes/index.tsx
+ *
+ * TanStack Router uses file-based routing:
+ *   - src/routes/index.tsx        →  "/"          (this file, the landing page)
+ *   - src/routes/work.$slug.tsx   →  "/work/:slug" (individual project pages)
+ *
+ * If your custom domain shows "no main page", the fix is almost always
+ * DNS / publishing (not code): make sure the domain's A record points to
+ * Lovable (185.158.133.1) and that you clicked "Update" in the Publish
+ * dialog after connecting the domain.
+ * ========================================================================= */
 import { createFileRoute, Link } from "@tanstack/react-router";
 import heroBg from "@/assets/hero-bg.jpg";
 import portrait from "@/assets/portrait.jpg";
 import { projects, type Project } from "@/lib/projects";
 
 export const Route = createFileRoute("/")({
+
   head: () => ({
     meta: [
       { title: "Mechanical Design Engineer — Portfolio" },
