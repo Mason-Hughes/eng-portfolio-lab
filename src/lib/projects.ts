@@ -129,10 +129,15 @@ export const projects: Project[] = [
         image: { src: gosselinWorkspace, caption: "Workspace polar diagram for the base layout." },
       },
     ],
+    video: {
+      embedUrl: "https://drive.google.com/file/d/17hIuncw2JJ01vhwb1uq5JEU7oZG0KwAM/preview",
+      caption: "Full assembly walkthrough of the Gosselin platform.",
+    },
     outcome: [],
     specs: [],
     gallery: [],
   },
+
   {
     slug: "powder-feeder",
     index: "02",
