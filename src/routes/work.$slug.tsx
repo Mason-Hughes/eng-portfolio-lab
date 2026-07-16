@@ -238,11 +238,11 @@ function ProjectDetail() {
       {/* Video */}
       {project.video && (
         <section className="relative py-24 md:py-32 border-b border-border bg-card/40">
-          <div className="mx-auto max-w-[1400px] px-6 md:px-10">
+          <div className="mx-auto max-w-[1080px] px-6 md:px-10">
             <SectionBlock label="Assembly" title="Full build in motion.">
               <div className="relative aspect-video overflow-hidden rounded-sm border border-border bg-black">
                 <iframe
-                  src={project.video.embedUrl}
+                  src={`${project.video.embedUrl}${project.video.embedUrl.includes("?") ? "&" : "?"}autoplay=1&loop=1&mute=1`}
                   title={project.video.caption}
                   allow="autoplay; fullscreen"
                   className="absolute inset-0 w-full h-full"
