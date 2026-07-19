@@ -68,7 +68,7 @@ export const projects: Project[] = [
     summary:
       "In 2016, Dr. Clément M. Gosselin from Université Laval proposed a novel architecture of kinematically redundant spatial parallel mechanisms. This architecture, broadly coined as the “Gosselin platform” (GP), is built upon the family of robots similar to the popular “Gough-Stewart platform” (G-SP). The key difference being the GP includes three additional redundant linear actuators, increasing its degrees of freedom (DoF) from 6 to 9, allowing the platform to avoid kinematic singularities throughout a much larger range of motion.",
     cover: gosselinAssemblyClean,
-    tags: ["Parallel Robotics", "SolidWorks", "MATLAB", "Mechanism Design"],
+    tags: ["ROBOTICS", "SolidWorks", "MATLAB", "MECHANICAL DESIGN"],
     problem:
       "In 2023, the Advanced Robotics Laboratory at UBC tasked my team with developing a full prototype. The project’s challenge was designing a system centered around reducing mechanical interference to reach the following goals: 60°–90° of tilt (measured from the end-effector to the X-Y plane), 75°–80° of twist (measured about the Z axis), 30–50 cm of travel (along the Z axis), and 35–50 kg payload capacity.",
     approach: [],
@@ -148,7 +148,7 @@ export const projects: Project[] = [
     summary:
       "Cold spray requires introducing fine metal powder into the carrier gas at a steady, controllable rate. I designed and modeled a compact, high-pressure disk-metering powder feeder that delivers fine (~25 µm) copper powder into a ~1,000 psi carrier gas stream at a steady, controllable rate for cold spray deposition. The design combines a precision electromechanical metering drivetrain with a fully sealed pressure-vessel housing to minimize any irregularities in the flow of powder.",
     cover: powderFeederFull,
-    tags: ["Powder Handling", "Pressure Vessel", "Cold Spray", "DFM"],
+    tags: ["GEARTRAIN", "PRESSURE VESSEL", "FEA", "COLD SPRAY"],
     problem:
       "In cold spray additive manufacturing, any variation in powder feed rate, such as a pulsing or inconsistent flow, directly affects deposition efficiency, precision and final material properties. Fine copper powder (~25 µm) easily clogs, resists flow and damages bearings and electronics. The feeder also has to introduce that powder into ~1,000 psi carrier gas, meaning the entire mechanism has to double as a sealed pressure vessel without disturbing the internal flow path that actually entrains the powder.",
     approach: [],
@@ -205,7 +205,7 @@ export const projects: Project[] = [
     summary:
       "Cold spray utilizes high speed gas to accelerate metal particles to critical velocities that allow for kinetic bonding at impact with metal substrates. The gas itself is typically accelerated using a converging-diverging nozzle, in which the exit velocity is proportional to the square root of the gas inlet temperature. Therefore one of the most important components in a cold spray system is the gas heater. This heater is responsible for heating up a high flow, high pressure stream of gas. The heater utilizes 18kW of 120V electricity, to bring air from 0°C to 440°C, at 1000 psi. The design of the heater was tightly constrained by cost and manufacturability, ultimately resulting in a modular design of stacked plates clamped together with threaded rods. The total cost was ~$3.5k per heater.",
     cover: copperHeFinsCad,
-    tags: ["Heat Transfer", "Pressure Sealing", "Thermal Stress", "CFD", "DFM"],
+    tags: ["THERMAL DESIGN", "PRESSURE VESSEL", "DFM", "CFD", "\n"],
     problem: "",
     approach: [],
     approachHeading: "Process and Decisions",
@@ -294,7 +294,7 @@ export const projects: Project[] = [
     summary:
       "Formula SAE is an international collegiate competition where student teams design and build a race car from the ground up. UBC Formula Electric designs a car to compete in the electric category. I took ownership of characterizing and optimizing the drivetrain's cooling system, responsible for keeping its two motors and two inverters within an efficient operating range.",
     cover: feRadiatorAssemblyIso,
-    tags: ["Thermal Management", "Testing & Characterization", "DFM", "FSAE Rules"],
+    tags: ["THERMAL DESIGN", "Testing & Characterization", "DFM", "FSAE Rules"],
     problem:
       "The car's current cooling system is effective, but over-specced, with an off-the-shelf radiator considerably larger than needed. This ensures reliable cooling, but carries a real cost in weight, aerodynamic drag, and packaging flexibility. The underlying issue was that no one had measured the system's true thermal requirements, leading to hardware specified with large, conservative margins. My goal was to establish what the system genuinely required and redesign the hardware accordingly.",
     approach: [],
