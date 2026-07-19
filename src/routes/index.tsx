@@ -39,7 +39,7 @@ export const Route = createFileRoute("/")({
   component: Portfolio,
 });
 
-const NAME = "Engineer";
+const NAME = "T. Mason Hughes";
 const TAGLINE = "Mechanical Design Engineer";
 
 
@@ -105,14 +105,12 @@ function Hero() {
         <div className="max-w-3xl">
           <p className="eyebrow fade-in">Portfolio — 2026</p>
           <h1 className="display text-5xl sm:text-7xl md:text-8xl mt-6 rise-in">
-            Designing
+            T. Mason Hughes
             <br />
-            <em className="italic text-primary/90">things that move</em>
-            <span className="text-primary">.</span>
+            <em className="italic text-primary/90 text-4xl sm:text-6xl md:text-7xl">Mechanical Design Engineer</em>
           </h1>
           <p className="mt-8 max-w-xl text-base md:text-lg text-muted-foreground leading-relaxed fade-in-slow">
-            {TAGLINE} working at the intersection of robotics and industrial
-            systems — from first concept sketches to production-ready hardware.
+            Mechanical Design Engineer&nbsp;developing novel hardware at the intersection of robotics and additive maunfacturing, from first concept sketches to production-ready hardware.
           </p>
           <div className="mt-12 flex items-center gap-6 fade-in-slow">
             <a
@@ -168,16 +166,12 @@ function Mission() {
         <div className="grid md:grid-cols-12 gap-8 md:gap-16">
           <div className="md:col-span-3 md:col-start-4">
             <p className="text-muted-foreground leading-relaxed">
-              I design parts and systems that survive contact with the shop
-              floor — tolerance stacks worked out before the first chip is cut,
-              every fastener justified, every assembly thought through.
+              While starting out in electric vehicles and robotics, I honed my skills developing a novel metal 3D printing process to build rocket engines and satellite cooling components. The technology leverages rapid (20kg/h), high-precision (&lt;1mm), solid-state bonding of dissimilar metals to create complex geometries. The printing process is enabled by high performance subsystems, which under a constrained budget, had to be designed and manufactured in house.
             </p>
           </div>
           <div className="md:col-span-3">
             <p className="text-muted-foreground leading-relaxed">
-              My work spans early concept exploration, detailed CAD,
-              simulation, and supplier collaboration through to first article
-              inspection and production ramp.
+              The projects showcased below are examples of subsystems built to support the printing process, as well as projects from earlier work in the area of electric vehicle and robotics.
             </p>
           </div>
         </div>
