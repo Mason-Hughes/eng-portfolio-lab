@@ -112,17 +112,6 @@ function Hero() {
           <p className="mt-8 max-w-xl text-base md:text-lg text-muted-foreground leading-relaxed fade-in-slow">
             Mechanical Design Engineer&nbsp;developing novel hardware at the intersection of robotics and additive maunfacturing, from first concept sketches to production-ready hardware.
           </p>
-          <div className="mt-12 flex items-center gap-6 fade-in-slow">
-            <a
-              href="#work"
-              className="inline-flex items-center gap-3 nav-link text-foreground hover:text-primary"
-            >
-              <span>Selected Work</span>
-              <span aria-hidden>↓</span>
-            </a>
-            <span className="hairline w-24" />
-            <a href="#contact" className="nav-link">Get in touch</a>
-          </div>
         </div>
       </div>
 
@@ -184,16 +173,7 @@ function Projects() {
   return (
     <section id="work" className="relative py-24 md:py-32 border-t border-border">
       <div className="mx-auto max-w-[1400px] px-6 md:px-10">
-        <SectionHeading
-          label={"\n"}
-          title={
-            <>
-              {"\n"}
-              <br />
-              <em className="italic text-muted-foreground">From sketch to ship.</em>
-            </>
-          }
-        />
+        <SectionHeading label={"\n"} title={null} />
         <div className="space-y-32 md:space-y-48">
           {projects.map((p, i) => (
             <ProjectRow key={p.index} project={p} flipped={i % 2 === 1} />
