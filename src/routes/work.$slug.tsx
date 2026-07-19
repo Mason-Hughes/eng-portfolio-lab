@@ -151,7 +151,7 @@ function ProjectDetail() {
                       </span>
                       <h3 className="display text-2xl md:text-3xl">
                         {s.heading}
-                        <span className="text-primary">.</span>
+                        {/* Removed point */}
                       </h3>
                     </div>
                     <div className="space-y-5 pl-0 md:pl-10">
