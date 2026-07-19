@@ -116,27 +116,32 @@ function Hero() {
       </div>
 
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 fade-in-slow">
-        <span className="eyebrow">{"\n"}</span>
         <span className="w-px h-10 bg-border" />
       </div>
+
     </section>
   );
 }
 
-function SectionHeading({ label, title }: { label: string; title: React.ReactNode }) {
+function SectionHeading({ label, title }: { label?: string; title: React.ReactNode }) {
   return (
     <div className="grid md:grid-cols-12 gap-8 items-end mb-16">
-      <div className="md:col-span-3">
-        <p className="eyebrow">{label}</p>
-      </div>
-      <div className="md:col-span-9">
-        <h2 className="display text-4xl sm:text-5xl md:text-6xl max-w-3xl">
-          {title}
-        </h2>
+      {label ? (
+        <div className="md:col-span-3">
+          <p className="eyebrow">{label}</p>
+        </div>
+      ) : null}
+      <div className={label ? "md:col-span-9" : "md:col-span-12"}>
+        {title ? (
+          <h2 className="display text-4xl sm:text-5xl md:text-6xl max-w-3xl">
+            {title}
+          </h2>
+        ) : null}
       </div>
     </div>
   );
 }
+
 
 function Mission() {
   return (
