@@ -294,7 +294,7 @@ export const projects: Project[] = [
     summary:
       "Formula SAE is an international collegiate competition where student teams design and build a race car from the ground up. UBC Formula Electric designs a car to compete in the electric category. I took ownership of characterizing and optimizing the drivetrain's cooling system, responsible for keeping its two motors and two inverters within an efficient operating range.",
     cover: feRadiatorAssemblyIso,
-    tags: ["Thermal Management", "Testing & Characterization", "DFM", "FSAE Rules"],
+    tags: ["THERMAL DESIGN", "Testing & Characterization", "DFM", "FSAE Rules"],
     problem:
       "The car's current cooling system is effective, but over-specced, with an off-the-shelf radiator considerably larger than needed. This ensures reliable cooling, but carries a real cost in weight, aerodynamic drag, and packaging flexibility. The underlying issue was that no one had measured the system's true thermal requirements, leading to hardware specified with large, conservative margins. My goal was to establish what the system genuinely required and redesign the hardware accordingly.",
     approach: [],
