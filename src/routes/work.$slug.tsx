@@ -344,7 +344,7 @@ function ProjectDetail() {
       <footer className="border-t border-border">
         <div className="mx-auto max-w-[1400px] px-6 md:px-10 py-10 flex flex-col md:flex-row gap-4 justify-between items-start md:items-center">
           <p className="font-mono text-xs text-muted-foreground tracking-[0.18em] uppercase">
-            © {new Date().getFullYear()} — Engineer
+            © 2026 — Engineer
           </p>
           <Link to="/" hash="contact" className="nav-link">
             Get in touch

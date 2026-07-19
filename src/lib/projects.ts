@@ -158,8 +158,8 @@ export const projects: Project[] = [
     index: "02",
     title: "High-Pressure Powder Feeder",
     subtitle: "High-Pressure Powder Feeder for Cold Spray Deposition",
-    role: "Mechanical Design",
-    year: "2024",
+    role: "Mechanical Design & Fabrication",
+    year: "2026",
     summary:
       "Cold spray requires introducing fine metal powder into the carrier gas at a steady, controllable rate. I designed and modeled a compact, high-pressure disk-metering powder feeder that delivers fine (~25 µm) copper powder into a ~1,000 psi carrier gas stream at a steady, controllable rate for cold spray deposition. The design combines a precision electromechanical metering drivetrain with a fully sealed pressure-vessel housing to minimize any irregularities in the flow of powder.",
     cover: powderFeederFull,
