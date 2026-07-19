@@ -146,9 +146,9 @@ function Mission() {
           label={"\n"}
           title={
             <>
-              Projects
+              Projects,
               <br />
-              <em className="italic text-muted-foreground">From sketch to ship.</em>
+              <em className="italic text-muted-foreground">from 0 to 1</em>
             </>
           }
         />
