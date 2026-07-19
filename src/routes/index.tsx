@@ -274,7 +274,7 @@ function About() {
   return (
     <section id="about" className="relative py-32 md:py-48 border-t border-border">
       <div className="mx-auto max-w-[1400px] px-6 md:px-10">
-        <SectionHeading label="About" title={<>This is me :)</>} />
+        <SectionHeading label={"\n"} title={<>This is me :)</>} />
         <div className="grid md:grid-cols-12 gap-8 md:gap-12 items-start">
           <div className="md:col-span-5">
             <div className="relative overflow-hidden rounded-sm border border-border">
