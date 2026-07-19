@@ -129,7 +129,7 @@ function Hero() {
       </div>
 
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 fade-in-slow">
-        <span className="eyebrow">Scroll</span>
+        <span className="eyebrow">{"\n"}</span>
         <span className="w-px h-10 bg-border" />
       </div>
     </section>
