@@ -116,34 +116,38 @@ function Hero() {
       </div>
 
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 fade-in-slow">
-        <span className="eyebrow">{"\n"}</span>
         <span className="w-px h-10 bg-border" />
       </div>
+
     </section>
   );
 }
 
-function SectionHeading({ label, title }: { label: string; title: React.ReactNode }) {
+function SectionHeading({ label, title }: { label?: string; title: React.ReactNode }) {
   return (
     <div className="grid md:grid-cols-12 gap-8 items-end mb-16">
-      <div className="md:col-span-3">
-        <p className="eyebrow">{label}</p>
-      </div>
-      <div className="md:col-span-9">
-        <h2 className="display text-4xl sm:text-5xl md:text-6xl max-w-3xl">
-          {title}
-        </h2>
+      {label ? (
+        <div className="md:col-span-3">
+          <p className="eyebrow">{label}</p>
+        </div>
+      ) : null}
+      <div className={label ? "md:col-span-9" : "md:col-span-12"}>
+        {title ? (
+          <h2 className="display text-4xl sm:text-5xl md:text-6xl max-w-3xl">
+            {title}
+          </h2>
+        ) : null}
       </div>
     </div>
   );
 }
 
+
 function Mission() {
   return (
-    <section className="relative py-32 md:py-48">
+    <section className="relative py-24 md:py-32">
       <div className="mx-auto max-w-[1400px] px-6 md:px-10">
         <SectionHeading
-          label={"\n"}
           title={
             <>
               Projects,
@@ -153,12 +157,10 @@ function Mission() {
           }
         />
         <div className="grid md:grid-cols-12 gap-8 md:gap-16">
-          <div className="md:col-span-3 md:col-start-4">
-            <p className="text-muted-foreground leading-relaxed">
+          <div className="md:col-span-6 md:col-start-4">
+            <p className="text-muted-foreground leading-relaxed mb-6">
               While starting out in electric vehicles and robotics, I honed my skills developing a novel metal 3D printing process to build rocket engines and satellite cooling components. The technology leverages rapid (20kg/h), high-precision (&lt;1mm), solid-state bonding of dissimilar metals to create complex geometries. The printing process is enabled by high performance subsystems, which under a constrained budget, had to be designed and manufactured in house.
             </p>
-          </div>
-          <div className="md:col-span-3">
             <p className="text-muted-foreground leading-relaxed">
               The projects showcased below are examples of subsystems built to support the printing process, as well as projects from earlier work in the area of electric vehicle and robotics.
             </p>
@@ -171,9 +173,8 @@ function Mission() {
 
 function Projects() {
   return (
-    <section id="work" className="relative py-24 md:py-32 border-t border-border">
+    <section id="work" className="relative py-20 md:py-24 border-t border-border">
       <div className="mx-auto max-w-[1400px] px-6 md:px-10">
-        <SectionHeading label={"\n"} title={null} />
         <div className="space-y-32 md:space-y-48">
           {projects.map((p, i) => (
             <ProjectRow key={p.index} project={p} flipped={i % 2 === 1} />
@@ -183,6 +184,7 @@ function Projects() {
     </section>
   );
 }
+
 
 function ProjectRow({ project, flipped }: { project: Project; flipped: boolean }) {
   return (
@@ -237,18 +239,11 @@ function ProjectRow({ project, flipped }: { project: Project; flipped: boolean }
 
 function Capabilities() {
   return (
-    <section id="capabilities" className="relative py-32 md:py-48 border-t border-border">
+    <section id="capabilities" className="relative py-24 md:py-32 border-t border-border">
       <div className="mx-auto max-w-[1400px] px-6 md:px-10">
-        <SectionHeading
-          label={"\n"}
-          title={
-            <>
-              The toolbox
-            </>
-          }
-        />
+        <SectionHeading title={<>The toolbox</>} />
         <div className="grid md:grid-cols-12 gap-8 md:gap-12">
-          <div className="md:col-span-7">
+          <div className="md:col-span-9 md:col-start-2">
             <ul className="divide-y divide-border border-y border-border">
               {capabilities.map((c) => (
                 <li key={c.label} className="grid grid-cols-3 gap-6 py-6">
@@ -258,23 +253,19 @@ function Capabilities() {
               ))}
             </ul>
           </div>
-          <aside className="md:col-span-4 md:col-start-9 space-y-6">
-            <p className="eyebrow">{"\n"}</p>
-            <p className="text-muted-foreground leading-relaxed">
-              {"\n"}
-            </p>
-          </aside>
         </div>
       </div>
     </section>
   );
 }
 
+
 function About() {
   return (
-    <section id="about" className="relative py-32 md:py-48 border-t border-border">
+    <section id="about" className="relative py-24 md:py-32 border-t border-border">
       <div className="mx-auto max-w-[1400px] px-6 md:px-10">
-        <SectionHeading label={"\n"} title={<>This is me :)</>} />
+        <SectionHeading title={<>This is me :)</>} />
+
         <div className="grid md:grid-cols-12 gap-8 md:gap-12 items-start">
           <div className="md:col-span-5">
             <div className="relative overflow-hidden rounded-sm border border-border">
@@ -293,13 +284,8 @@ function About() {
               I like building things that don't exist yet. Right now I'm the founding mechanical design engineer at DISC Alloys, a pre-seed startup building a novel metal 3D printing process. Before that, I built a 9-DOF robot at UBC that won the department's Excellence in Design award and optimized the cooling system for UBC's Formula Electric race car.
               {"\n"}I'm looking for my next role, doing hands-on engineering on cutting edge technology, in service of a mission I truly believe in!
             </p>
-            <p className="text-muted-foreground leading-relaxed">
-              {"\n"}
-            </p>
-            <p className="text-muted-foreground leading-relaxed">
-              {"\n"}
-            </p>
           </div>
+
         </div>
       </div>
     </section>
@@ -308,14 +294,13 @@ function About() {
 
 function Contact() {
   return (
-    <section id="contact" className="relative py-32 md:py-48 border-t border-border">
+    <section id="contact" className="relative py-24 md:py-32 border-t border-border">
       <div className="mx-auto max-w-[1400px] px-6 md:px-10">
-        <p className="eyebrow mb-10">{"\n"}</p>
         <h2 className="display text-5xl sm:text-7xl md:text-8xl max-w-4xl">
           Contacts
         </h2>
 
-        <div className="mt-20 grid md:grid-cols-12 gap-8">
+        <div className="mt-16 grid md:grid-cols-12 gap-8">
           <div className="md:col-span-6">
             <p className="eyebrow mb-3">Email</p>
             <a
@@ -325,25 +310,18 @@ function Contact() {
               mason@hughes.ca
             </a>
           </div>
-          <div className="md:col-span-6 grid grid-cols-2 gap-8">
-            <div>
-              <p className="eyebrow mb-3">LinkedIn</p>
-              <a href="https://www.linkedin.com/in/mason-hughes-5795731b6" target="_blank" rel="noopener noreferrer" className="text-lg hover:text-primary transition-colors">
-                www.linkedin.com/in/mason-hughes-5795731b6
-              </a>
-            </div>
-            <div>
-              <p className="eyebrow mb-3">{"\n"}</p>
-              <a href="#" className="text-lg hover:text-primary transition-colors">
-                {""}
-              </a>
-            </div>
+          <div className="md:col-span-6">
+            <p className="eyebrow mb-3">LinkedIn</p>
+            <a href="https://www.linkedin.com/in/mason-hughes-5795731b6" target="_blank" rel="noopener noreferrer" className="text-lg hover:text-primary transition-colors">
+              www.linkedin.com/in/mason-hughes-5795731b6
+            </a>
           </div>
         </div>
       </div>
     </section>
   );
 }
+
 
 function Footer() {
   return (
