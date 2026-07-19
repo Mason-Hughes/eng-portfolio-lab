@@ -154,12 +154,12 @@ function Mission() {
     <section className="relative py-32 md:py-48">
       <div className="mx-auto max-w-[1400px] px-6 md:px-10">
         <SectionHeading
-          label="Discipline"
+          label={"\n"}
           title={
             <>
-              Rigorous mechanical design,
+              Projects
               <br />
-              <em className="italic text-muted-foreground">built to be made.</em>
+              <em className="italic text-muted-foreground">From sketch to ship.</em>
             </>
           }
         />
@@ -185,10 +185,10 @@ function Projects() {
     <section id="work" className="relative py-24 md:py-32 border-t border-border">
       <div className="mx-auto max-w-[1400px] px-6 md:px-10">
         <SectionHeading
-          label="Selected Work — 04"
+          label={"\n"}
           title={
             <>
-              Four projects.
+              {"\n"}
               <br />
               <em className="italic text-muted-foreground">From sketch to ship.</em>
             </>
