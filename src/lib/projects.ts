@@ -213,7 +213,7 @@ export const projects: Project[] = [
   {
     slug: "copper-gas-heater",
     index: "03",
-    title: "Heat Exchanger",
+    title: "Gas Heater",
     subtitle: "18 kW modular gas heater for a cold spray system",
     role: "Mechanical Design & Thermal Analysis",
     year: "2025",
