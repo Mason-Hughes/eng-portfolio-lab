@@ -156,7 +156,7 @@ export const projects: Project[] = [
   {
     slug: "powder-feeder",
     index: "02",
-    title: "High-Pressure Powder Feeder",
+    title: "Powder Feeder",
     subtitle: "High-Pressure Powder Feeder for Cold Spray Deposition",
     role: "Mechanical Design & Fabrication",
     year: "2026",
@@ -179,7 +179,7 @@ export const projects: Project[] = [
       {
         heading: "Integrated Gear-Disk Drive",
         body: [
-          "A NEMA 23 stepper motor directly drives an inline planetary gearbox, with the output shaft driving the pinion gear (via key & set-screws). The metering disk itself has teeth machined into its edge, doubling as a spur gear driven directly by the pinion. This results in a ~40:1 total reduction from motor to disk, converting the motor's native step resolution into fine, repeatable angular control at low disk speeds. Such fine powders call for tight tolerances between the faces of the housing and the metering disk. Therefore when initially validating the mechanism/assembly, there is slight uncertainty in the magnitude of friction the drivetrain must overcome to spin the disk. Maximum motor/gearbox torque was designed to remain incapable of shearing gear teeth, ensuring the failure point in the drivetrain is motor stalling, avoiding needless damage/remachining of components.",
+          "A NEMA 23 stepper motor directly drives an inline planetary gearbox, with the output shaft driving the pinion gear (via key & set-screws). The metering disk itself has teeth machined into its edge, doubling as a spur gear driven directly by the pinion. This results in a ~40:1 total reduction from motor to disk, converting the motor's native step resolution into fine, repeatable angular control at low disk speeds. Such fine powders call for tight tolerances between the faces of the housing and the metering disk. Therefore when initially validating the mechanism/assembly, there is slight uncertainty in the magnitude of friction the drivetrain must overcome to spin the disk. Maximum motor/gearbox torque was designed to remain incapable of shearing gear teeth, ensuring the failure point in the drivetrain is motor stalling, avoiding needless damage/re-machining of components.",
         ],
         image: { src: powderFeederGearbox },
       },
