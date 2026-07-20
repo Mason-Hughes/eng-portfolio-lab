@@ -107,7 +107,7 @@ function ProjectDetail() {
       {project.problem && (
         <section className="relative py-24 md:py-32 border-b border-border">
           <div className="mx-auto max-w-[1400px] px-6 md:px-10">
-            <SectionBlock label="Problem" title="The brief.">
+            <SectionBlock label="\n" title="The problem.">
               <p className="text-lg md:text-xl text-foreground/90 leading-relaxed">
                 {project.problem}
               </p>
@@ -141,7 +141,7 @@ function ProjectDetail() {
       {project.sections && project.sections.length > 0 && (
         <section className="relative py-24 md:py-32 border-b border-border">
           <div className="mx-auto max-w-[1400px] px-6 md:px-10">
-            <SectionBlock label={project.approachHeading ?? "Approach"} title="What I did.">
+            <SectionBlock label="\n" title="Design & Approach.">
               <div className="space-y-16">
                 {project.sections.map((s, i) => (
                   <div key={i} className="space-y-6">
@@ -260,7 +260,7 @@ function ProjectDetail() {
       {project.status && (
         <section className="relative py-24 md:py-32 border-b border-border bg-card/40">
           <div className="mx-auto max-w-[1400px] px-6 md:px-10">
-            <SectionBlock label="Status" title="Where it stands.">
+            <SectionBlock label="\n" title="Status.">
               <p className="text-lg md:text-xl text-foreground/90 leading-relaxed">
                 {project.status}
               </p>
@@ -293,7 +293,7 @@ function ProjectDetail() {
       {project.skills && project.skills.length > 0 && (
         <section className="relative py-24 md:py-32 border-b border-border">
           <div className="mx-auto max-w-[1400px] px-6 md:px-10">
-            <SectionBlock label="Skills Demonstrated" title="What it took.">
+            <SectionBlock label="\n" title="Skills Applied.">
               <ul className="divide-y divide-border border-y border-border">
                 {project.skills.map((s, i) => (
                   <li key={i} className="grid grid-cols-[auto_1fr] gap-6 py-5 items-baseline">
