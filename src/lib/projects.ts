@@ -167,7 +167,7 @@ export const projects: Project[] = [
     problem:
       "In cold spray additive manufacturing, any variation in powder feed rate, such as a pulsing or inconsistent flow, directly affects deposition efficiency, precision and final material properties. Fine copper powder (~25 µm) easily clogs, resists flow and damages bearings and electronics. The feeder also has to introduce that powder into ~1,000 psi carrier gas, meaning the entire mechanism has to double as a sealed pressure vessel without disturbing the internal flow path that actually entrains the powder.",
     approach: [],
-    approachHeading: "Design & Approach",
+    approachHeading: "Testing & Characterization",
     sections: [
       {
         heading: "Disk Metering Mechanism",
@@ -223,7 +223,7 @@ export const projects: Project[] = [
     tags: ["THERMAL DESIGN", "PRESSURE VESSEL", "DFM", "CFD", "\n"],
     problem: "",
     approach: [],
-    approachHeading: "Design & Approach",
+    approachHeading: "Testing & Characterization",
     sections: [
       {
         heading: "Fins",
