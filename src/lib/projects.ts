@@ -66,7 +66,7 @@ export const projects: Project[] = [
     year: "2023",
     client: "UBC Advanced Robotics Laboratory",
     summary:
-      "In 2016, Dr. Clément M. Gosselin from Université Laval proposed a novel architecture of kinematically redundant spatial parallel mechanisms. This architecture, broadly coined as the “Gosselin platform” (GP), is built upon the family of robots similar to the popular “Gough-Stewart platform” (G-SP). The key difference is that the GP includes three additional redundant linear actuators, increasing its degrees of freedom (DoF) from 6 to 9, allowing the platform to avoid kinematic singularities throughout a much larger range of motion. Below are illustrations of the G-SP and GP, respectively.",
+      "In 2016, Dr. Clément M. Gosselin from Université Laval proposed a novel architecture of kinematically redundant spatial parallel mechanisms. This architecture, broadly coined as the “Gosselin platform”, is built upon the family of robots similar to the popular “Gough-Stewart platform”. The key difference is that the Gosselin Platform includes three additional redundant linear actuators, increasing its degrees of freedom from 6 to 9, allowing the platform to avoid kinematic singularities throughout a much larger range of motion.",
     cover: gosselinAssemblyClean,
     tags: ["ROBOTICS", "SolidWorks", "MATLAB", "MECHANICAL DESIGN"],
     problem:
@@ -218,7 +218,7 @@ export const projects: Project[] = [
     role: "Mechanical Design & Thermal Analysis",
     year: "2025",
     summary:
-      "Cold spray utilizes high speed gas to accelerate metal particles to critical velocities that allow for kinetic bonding at impact with metal substrates. The gas itself is typically accelerated using a converging-diverging nozzle, in which the exit velocity is proportional to the square root of the gas inlet temperature. Therefore one of the most important components in a cold spray system is the gas heater. This heater is responsible for heating up a high flow, high pressure stream of gas. The heater utilizes 18kW of 120V electricity, to bring air from 0°C to 440°C, at 1000 psi. The design of the heater was tightly constrained by cost and manufacturability, ultimately resulting in a modular design of stacked plates clamped together with threaded rods. The total cost was ~$3.5k per heater.",
+      "Cold spray utilizes high speed gas to accelerate metal particles to critical velocities that allow for kinetic bonding at impact with metal substrates. The gas itself is typically accelerated using a converging-diverging nozzle, in which the exit velocity is proportional to the square root of the gas inlet temperature. Therefore one of the most important components in a cold spray system is the gas heater. This heater is responsible for heating up a high flow, high pressure stream of gas. The heater utilizes 18kW of 120V electricity, to bring air from 0°C to 440°C, at 1000 psi. The design of the heater was tightly constrained by cost and manufacturability, ultimately resulting in a modular design of stacked plates clamped together with threaded rods.",
     cover: copperHeFinsCad,
     tags: ["THERMAL DESIGN", "PRESSURE VESSEL", "DFM", "CFD", "\n"],
     problem: "",
@@ -307,7 +307,7 @@ export const projects: Project[] = [
     year: "2022",
     client: "UBC Formula Electric",
     summary:
-      "Formula SAE is an international collegiate competition where student teams design and build a race car from the ground up. UBC Formula Electric designs a car to compete in the electric category. I took ownership of characterizing and optimizing the drivetrain's cooling system, responsible for keeping its two motors and two inverters within an efficient operating range.",
+      "Multidisciplinary team that designs, builds, and races a fully electric formula car from scratch against 80+ international university teams at the FSAE Electric competition. I took ownership of characterizing and optimizing the drivetrain's cooling system, responsible for keeping its two motors and two inverters within an efficient operating range.",
     cover: feRadiatorAssemblyIso,
     tags: ["THERMAL DESIGN", "Testing & Characterization", "DFM", "FSAE Rules"],
     problem:
