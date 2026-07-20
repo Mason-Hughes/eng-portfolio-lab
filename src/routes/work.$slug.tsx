@@ -193,15 +193,36 @@ function ProjectDetail() {
           <div className="mx-auto max-w-[1400px] px-6 md:px-10">
             <SectionBlock label="\n" title="BOM for the complete 4-heater setup:">
               <ul className="divide-y divide-border border-y border-border">
-                {project.specs.map((s) => (
-                  <li
-                    key={s.label}
-                    className="grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-6 py-5"
-                  >
-                    <span className="eyebrow md:col-span-1">{s.label}</span>
-                    <span className="md:col-span-2 text-foreground/90 whitespace-pre-line">{s.value}</span>
-                  </li>
-                ))}
+                {project.specs.map((s) => {
+                  const lines = s.value.split("\n").map((l) => l.trim()).filter(Boolean);
+                  const isList = lines.length > 1;
+                  return (
+                    <li
+                      key={s.label}
+                      className="grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-6 py-5"
+                    >
+                      {s.label && s.label.trim() !== "" && s.label !== "\\n" ? (
+                        <span className="eyebrow md:col-span-1">{s.label}</span>
+                      ) : (
+                        <span className="hidden md:block md:col-span-1" />
+                      )}
+                      <div className={s.label && s.label.trim() !== "" && s.label !== "\\n" ? "md:col-span-2" : "md:col-span-3"}>
+                        {isList ? (
+                          <ul className="space-y-2">
+                            {lines.map((l, i) => (
+                              <li key={i} className="grid grid-cols-[auto_1fr] gap-3 items-start">
+                                <span className="text-primary mt-2 leading-none" aria-hidden>●</span>
+                                <span className="text-foreground/90">{l}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        ) : (
+                          <span className="text-foreground/90 whitespace-pre-line">{s.value}</span>
+                        )}
+                      </div>
+                    </li>
+                  );
+                })}
               </ul>
             </SectionBlock>
           </div>
