@@ -296,16 +296,16 @@ export const projects: Project[] = [
     title: "Formula Electric Cooling",
     subtitle: "Cooling system characterization and optimization for UBC Formula Electric",
     role: "Thermal Systems Lead",
-    year: "2022",
+    year: "2024",
     client: "UBC Formula Electric",
     summary:
       "Multidisciplinary team that designs, builds, and races a fully electric formula car from scratch against 80+ international university teams at the FSAE Electric competition. I took ownership of characterizing and optimizing the drivetrain's cooling system, responsible for keeping its two motors and two inverters within an efficient operating range.",
     cover: feRadiatorAssemblyIso,
     tags: ["THERMAL DESIGN", "Testing & Characterization", "DFM", "FSAE Rules"],
     problem:
-      "The car's current cooling system is effective, but over-specced, with an off-the-shelf radiator considerably larger than needed. This ensures reliable cooling, but carries a real cost in weight, aerodynamic drag, and packaging flexibility. The underlying issue was that no one had measured the system's true thermal requirements, leading to hardware specified with large, conservative margins. My goal was to establish what the system genuinely required and redesign the hardware accordingly.",
+      "The car's current cooling system is effective, but over-specced, with an off-the-shelf radiator considerably larger than needed. This ensures reliable cooling, but carries a real cost in weight, aerodynamic drag, and mounting flexibility. The underlying issue was that no one had measured the system's true thermal requirements, leading to hardware specified with large, conservative margins. My goal was to establish what the system genuinely required and redesign the hardware accordingly.",
     approach: [],
-    approachHeading: "Characterizing the system through testing",
+    approachHeading: "Testing & Characterization",
     sections: [
       {
         heading: "Motor & Inverter Temperature vs Efficiency",
@@ -342,12 +342,12 @@ export const projects: Project[] = [
         image: { src: feRadiatorAssemblyFront, caption: "Radiator assembly — front view." },
       },
       {
-        heading: "End Cap — Detail",
+        heading: "\n",
         body: [],
         image: { src: feRadiatorEndCap, caption: "Carbon-fibre shell with aluminium sheet-metal base and tube fittings." },
       },
       {
-        heading: "Assembly — Isometric",
+        heading: "\n",
         body: [],
         image: { src: feRadiatorAssemblyIso, caption: "Complete downsized radiator ready for packaging." },
       },
