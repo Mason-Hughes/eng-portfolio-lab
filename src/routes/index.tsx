@@ -39,15 +39,15 @@ export const Route = createFileRoute("/")({
   component: Portfolio,
 });
 
-const NAME = "Engineer";
+const NAME = "T. Mason Hughes";
 const TAGLINE = "Mechanical Design Engineer";
 
 
 const capabilities = [
-  { label: "CAD", value: "SolidWorks · Fusion 360 · NX" },
-  { label: "Analysis", value: "FEA · Tolerance Stack · GD&T" },
-  { label: "Fabrication", value: "CNC · Sheet Metal · 3D Print" },
-  { label: "Domains", value: "Robotics · Industrial Automation" },
+  { label: "PROGRAMS", value: "SolidWorks · Onshape" },
+  { label: "PROGRAMS", value: "ANSYS (FEA & CFD) · MasterCAM ·\u00a0MATLAB ·\u00a0C++ ·\u00a0Arduino" },
+  { label: "MACHINERY", value: "CNC (5 axis & 3 axis)\u00a0·\u00a0Lathe ·\u00a0Thermoformer · 3D Printer" },
+  { label: "MACHINERY", value: "DFM · DFA · Parametric design · GD&T · Tolerance stack-up analysis" },
 ];
 
 function Portfolio() {
@@ -105,79 +105,64 @@ function Hero() {
         <div className="max-w-3xl">
           <p className="eyebrow fade-in">Portfolio — 2026</p>
           <h1 className="display text-5xl sm:text-7xl md:text-8xl mt-6 rise-in">
-            Designing
+            T. Mason Hughes
             <br />
-            <em className="italic text-primary/90">things that move</em>
-            <span className="text-primary">.</span>
+            <em className="italic text-primary/90 text-4xl sm:text-6xl md:text-7xl">Mechanical Design Engineer</em>
           </h1>
           <p className="mt-8 max-w-xl text-base md:text-lg text-muted-foreground leading-relaxed fade-in-slow">
-            {TAGLINE} working at the intersection of robotics and industrial
-            systems — from first concept sketches to production-ready hardware.
+            Mechanical Design Engineer&nbsp;developing novel hardware at the intersection of robotics and additive manufacturing, from first concept sketches to production-ready hardware.
           </p>
-          <div className="mt-12 flex items-center gap-6 fade-in-slow">
-            <a
-              href="#work"
-              className="inline-flex items-center gap-3 nav-link text-foreground hover:text-primary"
-            >
-              <span>Selected Work</span>
-              <span aria-hidden>↓</span>
-            </a>
-            <span className="hairline w-24" />
-            <a href="#contact" className="nav-link">Get in touch</a>
-          </div>
         </div>
       </div>
 
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 fade-in-slow">
-        <span className="eyebrow">Scroll</span>
         <span className="w-px h-10 bg-border" />
       </div>
+
     </section>
   );
 }
 
-function SectionHeading({ label, title }: { label: string; title: React.ReactNode }) {
+function SectionHeading({ label, title }: { label?: string; title: React.ReactNode }) {
   return (
     <div className="grid md:grid-cols-12 gap-8 items-end mb-16">
-      <div className="md:col-span-3">
-        <p className="eyebrow">{label}</p>
-      </div>
-      <div className="md:col-span-9">
-        <h2 className="display text-4xl sm:text-5xl md:text-6xl max-w-3xl">
-          {title}
-        </h2>
+      {label ? (
+        <div className="md:col-span-3">
+          <p className="eyebrow">{label}</p>
+        </div>
+      ) : null}
+      <div className={label ? "md:col-span-9" : "md:col-span-12"}>
+        {title ? (
+          <h2 className="display text-4xl sm:text-5xl md:text-6xl max-w-3xl">
+            {title}
+          </h2>
+        ) : null}
       </div>
     </div>
   );
 }
 
+
 function Mission() {
   return (
-    <section className="relative py-32 md:py-48">
+    <section className="relative py-24 md:py-32">
       <div className="mx-auto max-w-[1400px] px-6 md:px-10">
         <SectionHeading
-          label="Discipline"
           title={
             <>
-              Rigorous mechanical design,
+              Projects,
               <br />
-              <em className="italic text-muted-foreground">built to be made.</em>
+              <em className="italic text-muted-foreground">from 0 to 1</em>
             </>
           }
         />
         <div className="grid md:grid-cols-12 gap-8 md:gap-16">
-          <div className="md:col-span-3 md:col-start-4">
-            <p className="text-muted-foreground leading-relaxed">
-              I design parts and systems that survive contact with the shop
-              floor — tolerance stacks worked out before the first chip is cut,
-              every fastener justified, every assembly thought through.
+          <div className="md:col-span-6 md:col-start-4">
+            <p className="text-muted-foreground leading-relaxed mb-6">
+              While starting out in electric vehicles and robotics, I honed my skills developing a novel metal 3D printing process to build rocket engines and satellite cooling components. The technology leverages rapid (20kg/h), high-precision (&lt;1mm), solid-state bonding of dissimilar metals to create complex geometries. The printing process is enabled by high performance subsystems, which under a constrained budget, had to be designed and manufactured in house.
             </p>
-          </div>
-          <div className="md:col-span-3">
             <p className="text-muted-foreground leading-relaxed">
-              My work spans early concept exploration, detailed CAD,
-              simulation, and supplier collaboration through to first article
-              inspection and production ramp.
+              The projects showcased below are examples of subsystems built to support the printing process, as well as projects from earlier work in the area of electric vehicle and robotics.
             </p>
           </div>
         </div>
@@ -188,18 +173,8 @@ function Mission() {
 
 function Projects() {
   return (
-    <section id="work" className="relative py-24 md:py-32 border-t border-border">
+    <section id="work" className="relative py-20 md:py-24 border-t border-border">
       <div className="mx-auto max-w-[1400px] px-6 md:px-10">
-        <SectionHeading
-          label="Selected Work — 04"
-          title={
-            <>
-              Four projects.
-              <br />
-              <em className="italic text-muted-foreground">From sketch to ship.</em>
-            </>
-          }
-        />
         <div className="space-y-32 md:space-y-48">
           {projects.map((p, i) => (
             <ProjectRow key={p.index} project={p} flipped={i % 2 === 1} />
@@ -209,6 +184,7 @@ function Projects() {
     </section>
   );
 }
+
 
 function ProjectRow({ project, flipped }: { project: Project; flipped: boolean }) {
   return (
@@ -263,19 +239,11 @@ function ProjectRow({ project, flipped }: { project: Project; flipped: boolean }
 
 function Capabilities() {
   return (
-    <section id="capabilities" className="relative py-32 md:py-48 border-t border-border">
+    <section id="capabilities" className="relative py-24 md:py-32 border-t border-border">
       <div className="mx-auto max-w-[1400px] px-6 md:px-10">
-        <SectionHeading
-          label="Capabilities"
-          title={
-            <>
-              The toolbox
-              <em className="italic text-muted-foreground">, refined.</em>
-            </>
-          }
-        />
+        <SectionHeading title={<>The toolbox</>} />
         <div className="grid md:grid-cols-12 gap-8 md:gap-12">
-          <div className="md:col-span-7">
+          <div className="md:col-span-9 md:col-start-2">
             <ul className="divide-y divide-border border-y border-border">
               {capabilities.map((c) => (
                 <li key={c.label} className="grid grid-cols-3 gap-6 py-6">
@@ -285,26 +253,19 @@ function Capabilities() {
               ))}
             </ul>
           </div>
-          <aside className="md:col-span-4 md:col-start-9 space-y-6">
-            <p className="eyebrow">Working knowledge of</p>
-            <p className="text-muted-foreground leading-relaxed">
-              GD&amp;T per ASME Y14.5 · ISO 2768 · ANSI fastener standards ·
-              metric and imperial tolerancing · DFM/DFA reviews ·
-              first-article inspection · supplier qualification ·
-              mechanical test rig design.
-            </p>
-          </aside>
         </div>
       </div>
     </section>
   );
 }
 
+
 function About() {
   return (
-    <section id="about" className="relative py-32 md:py-48 border-t border-border">
+    <section id="about" className="relative py-24 md:py-32 border-t border-border">
       <div className="mx-auto max-w-[1400px] px-6 md:px-10">
-        <SectionHeading label="About" title={<>The engineer<span className="text-primary">.</span></>} />
+        <SectionHeading title={<>This is me :)</>} />
+
         <div className="grid md:grid-cols-12 gap-8 md:gap-12 items-start">
           <div className="md:col-span-5">
             <div className="relative overflow-hidden rounded-sm border border-border">
@@ -319,23 +280,12 @@ function About() {
             </div>
           </div>
           <div className="md:col-span-6 md:col-start-7 space-y-6">
-            <p className="text-lg leading-relaxed">
-              I'm a mechanical design engineer focused on robotics and
-              industrial systems. I like problems that live at the boundary of
-              mechanism, electronics, and software — where a clever bracket
-              saves a sensor, or a thoughtful tolerance budget unlocks a
-              process.
-            </p>
-            <p className="text-muted-foreground leading-relaxed">
-              My background spans early-stage hardware startups and
-              established industrial OEMs. I'm comfortable owning a subsystem
-              from a blank sketchbook to a serial-numbered shipping unit, and
-              I work fluently across the CAD-to-shop-floor handoff.
-            </p>
-            <p className="text-muted-foreground leading-relaxed">
-              Currently open to full-time mechanical engineering roles.
+            <p className="text-lg leading-relaxed whitespace-pre-line">
+              I like building things that don't exist yet. Right now I'm the founding mechanical design engineer at DISC Alloys, a pre-seed startup building a novel metal 3D printing process. Before that, I built a 9-DOF robot at UBC that won the department's Excellence in Design award and optimized the cooling system for UBC's Formula Electric race car.
+              {"\n"}I'm looking for my next role, doing hands-on engineering on cutting edge technology, in service of a mission I truly believe in!
             </p>
           </div>
+
         </div>
       </div>
     </section>
@@ -344,45 +294,34 @@ function About() {
 
 function Contact() {
   return (
-    <section id="contact" className="relative py-32 md:py-48 border-t border-border">
+    <section id="contact" className="relative py-24 md:py-32 border-t border-border">
       <div className="mx-auto max-w-[1400px] px-6 md:px-10">
-        <p className="eyebrow mb-10">Contact</p>
         <h2 className="display text-5xl sm:text-7xl md:text-8xl max-w-4xl">
-          Let's build
-          <br />
-          <em className="italic text-primary">something real</em>
-          <span className="text-primary">.</span>
+          Contacts
         </h2>
 
-        <div className="mt-20 grid md:grid-cols-12 gap-8">
+        <div className="mt-16 grid md:grid-cols-12 gap-8">
           <div className="md:col-span-6">
             <p className="eyebrow mb-3">Email</p>
             <a
-              href="mailto:you@example.com"
+              href="mailto:mason@hughes.ca"
               className="text-2xl md:text-3xl font-serif hover:text-primary transition-colors"
             >
-              you@example.com
+              mason@hughes.ca
             </a>
           </div>
-          <div className="md:col-span-6 grid grid-cols-2 gap-8">
-            <div>
-              <p className="eyebrow mb-3">LinkedIn</p>
-              <a href="#" className="text-lg hover:text-primary transition-colors">
-                /in/your-handle
-              </a>
-            </div>
-            <div>
-              <p className="eyebrow mb-3">Resume</p>
-              <a href="#" className="text-lg hover:text-primary transition-colors">
-                Download PDF ↗
-              </a>
-            </div>
+          <div className="md:col-span-6">
+            <p className="eyebrow mb-3">LinkedIn</p>
+            <a href="https://www.linkedin.com/in/mason-hughes-5795731b6" target="_blank" rel="noopener noreferrer" className="text-lg hover:text-primary transition-colors">
+              www.linkedin.com/in/mason-hughes-5795731b6
+            </a>
           </div>
         </div>
       </div>
     </section>
   );
 }
+
 
 function Footer() {
   return (

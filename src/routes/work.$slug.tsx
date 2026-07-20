@@ -107,7 +107,7 @@ function ProjectDetail() {
       {project.problem && (
         <section className="relative py-24 md:py-32 border-b border-border">
           <div className="mx-auto max-w-[1400px] px-6 md:px-10">
-            <SectionBlock label="Problem" title="The brief.">
+            <SectionBlock label="\n" title="The problem.">
               <p className="text-lg md:text-xl text-foreground/90 leading-relaxed">
                 {project.problem}
               </p>
@@ -141,17 +141,17 @@ function ProjectDetail() {
       {project.sections && project.sections.length > 0 && (
         <section className="relative py-24 md:py-32 border-b border-border">
           <div className="mx-auto max-w-[1400px] px-6 md:px-10">
-            <SectionBlock label={project.approachHeading ?? "Approach"} title="What I did.">
+            <SectionBlock label="\n" title="Design & Approach.">
               <div className="space-y-16">
                 {project.sections.map((s, i) => (
                   <div key={i} className="space-y-6">
                     <div className="flex items-baseline gap-4">
                       <span className="font-mono text-xs text-primary tabular-nums">
-                        {String(i + 1).padStart(2, "0")}
+                        {"\n"}
                       </span>
-                      <h3 className="display text-2xl md:text-3xl">
+                      <h3 className="display text-3xl md:text-4xl">
                         {s.heading}
-                        <span className="text-primary">.</span>
+                        {/* Removed point */}
                       </h3>
                     </div>
                     <div className="space-y-5 pl-0 md:pl-10">
@@ -191,17 +191,38 @@ function ProjectDetail() {
       {project.specs.length > 0 && (
         <section className="relative py-24 md:py-32 border-b border-border bg-card/40">
           <div className="mx-auto max-w-[1400px] px-6 md:px-10">
-            <SectionBlock label="Key Specs" title="The numbers.">
+            <SectionBlock label="\n" title="BOM for the complete 4-heater setup:">
               <ul className="divide-y divide-border border-y border-border">
-                {project.specs.map((s) => (
-                  <li
-                    key={s.label}
-                    className="grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-6 py-5"
-                  >
-                    <span className="eyebrow md:col-span-1">{s.label}</span>
-                    <span className="md:col-span-2 text-foreground/90">{s.value}</span>
-                  </li>
-                ))}
+                {project.specs.map((s) => {
+                  const lines = s.value.split("\n").map((l) => l.trim()).filter(Boolean);
+                  const isList = lines.length > 1;
+                  return (
+                    <li
+                      key={s.label}
+                      className="grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-6 py-5"
+                    >
+                      {s.label && s.label.trim() !== "" && s.label !== "\\n" ? (
+                        <span className="eyebrow md:col-span-1">{s.label}</span>
+                      ) : (
+                        <span className="hidden md:block md:col-span-1" />
+                      )}
+                      <div className={s.label && s.label.trim() !== "" && s.label !== "\\n" ? "md:col-span-2" : "md:col-span-3"}>
+                        {isList ? (
+                          <ul className="space-y-2">
+                            {lines.map((l, i) => (
+                              <li key={i} className="grid grid-cols-[auto_1fr] gap-3 items-start">
+                                <span className="text-primary mt-2 leading-none" aria-hidden>●</span>
+                                <span className="text-foreground/90">{l}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        ) : (
+                          <span className="text-foreground/90 whitespace-pre-line">{s.value}</span>
+                        )}
+                      </div>
+                    </li>
+                  );
+                })}
               </ul>
             </SectionBlock>
           </div>
@@ -260,7 +281,7 @@ function ProjectDetail() {
       {project.status && (
         <section className="relative py-24 md:py-32 border-b border-border bg-card/40">
           <div className="mx-auto max-w-[1400px] px-6 md:px-10">
-            <SectionBlock label="Status" title="Where it stands.">
+            <SectionBlock label="\n" title="Status.">
               <p className="text-lg md:text-xl text-foreground/90 leading-relaxed">
                 {project.status}
               </p>
@@ -290,10 +311,10 @@ function ProjectDetail() {
       )}
 
       {/* Skills Demonstrated */}
-      {project.skills && project.skills.length > 0 && (
+      {project.skills && project.skills.filter((s) => s && s.trim() !== "" && s !== "\\n").length > 0 && (
         <section className="relative py-24 md:py-32 border-b border-border">
           <div className="mx-auto max-w-[1400px] px-6 md:px-10">
-            <SectionBlock label="Skills Demonstrated" title="What it took.">
+            <SectionBlock label="\n" title="Skills Applied.">
               <ul className="divide-y divide-border border-y border-border">
                 {project.skills.map((s, i) => (
                   <li key={i} className="grid grid-cols-[auto_1fr] gap-6 py-5 items-baseline">
@@ -344,7 +365,7 @@ function ProjectDetail() {
       <footer className="border-t border-border">
         <div className="mx-auto max-w-[1400px] px-6 md:px-10 py-10 flex flex-col md:flex-row gap-4 justify-between items-start md:items-center">
           <p className="font-mono text-xs text-muted-foreground tracking-[0.18em] uppercase">
-            © {new Date().getFullYear()} — Engineer
+            © 2026 — Engineer
           </p>
           <Link to="/" hash="contact" className="nav-link">
             Get in touch
@@ -373,10 +394,11 @@ function SectionBlock({
   title: string;
   children: React.ReactNode;
 }) {
+  const hasLabel = label && label.trim() !== "" && label !== "\\n";
   return (
     <div className="grid md:grid-cols-12 gap-8 md:gap-12">
       <div className="md:col-span-3">
-        <p className="eyebrow mb-2">{label}</p>
+        {hasLabel && <p className="eyebrow mb-2">{label}</p>}
         <h2 className="display text-3xl md:text-4xl">
           {title.replace(/\.$/, "")}
           <span className="text-primary">.</span>

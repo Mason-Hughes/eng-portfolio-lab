@@ -61,41 +61,56 @@ export const projects: Project[] = [
     slug: "gosselin-platform",
     index: "01",
     title: "Gosselin Platform",
-    subtitle: "Novel, 9 Degree of Freedom, Parallel Robot",
-    role: "Mechanical Design & Fabrication Lead",
+    subtitle: "Novel, 9 Degree of Freedom, Kinematically Redundant Parallel Mechanism",
+    role: "Mechanical Design & Full Fabrication",
     year: "2023",
     client: "UBC Advanced Robotics Laboratory",
     summary:
-      "In 2016, Dr. Clément M. Gosselin from Université Laval proposed a novel architecture of kinematically redundant spatial parallel mechanisms. This architecture, broadly coined as the “Gosselin platform” (GP), is built upon the family of robots similar to the popular “Gough-Stewart platform” (G-SP). The key difference being the GP includes three additional redundant linear actuators, increasing its degrees of freedom (DoF) from 6 to 9, allowing the platform to avoid kinematic singularities throughout a much larger range of motion.",
+      "In 2016, Dr. Clément M. Gosselin from Université Laval proposed a novel architecture of kinematically redundant spatial parallel mechanisms. This architecture, broadly coined as the “Gosselin platform”, is built upon the family of robots similar to the popular “Gough-Stewart platform”. The key difference is that the Gosselin Platform includes three additional redundant linear actuators, increasing its degrees of freedom from 6 to 9, allowing the platform to avoid kinematic singularities throughout a much larger range of motion.",
     cover: gosselinAssemblyClean,
-    tags: ["Parallel Robotics", "SolidWorks", "MATLAB", "Mechanism Design"],
+    tags: ["ROBOTICS", "SolidWorks", "MATLAB", "MECHANICAL DESIGN"],
     problem:
-      "In 2023, the Advanced Robotics Laboratory at UBC tasked my team with developing a full prototype. The project’s challenge was designing a system centered around reducing mechanical interference to reach the following goals: 60°–90° of tilt (measured from the end-effector to the X-Y plane), 75°–80° of twist (measured about the Z axis), 30–50 cm of travel (along the Z axis), and 35–50 kg payload capacity.",
+      "In 2023, the Advanced Robotics Laboratory at UBC tasked my team with developing a full GP prototype with a total budget of $31k. The project’s challenge was designing a system centered around reducing mechanical interference to achieve the following goals: 60°- 90° of tilt (measured from the end-effector to the X-Y plane) 75°- 80° of twist (measured about the Z axis) 30 - 50 cm of travel (along the Z axis) 35 - 50 kg payload capacity",
     approach: [],
-    approachHeading: "Approach",
+    approachHeading: "The problem",
     sections: [
       {
-        heading: "Approach",
+        heading: "The problem",
         body: [
-          "The project was broken down into major components five steps:",
+          "In 2023, the Advanced Robotics Laboratory at UBC tasked my team with developing a full GP prototype with a total budget of $31k. The project’s challenge was designing a system centered around reducing mechanical interference to achieve the following goals:",
+          "• 60°- 90° of tilt (measured from the end-effector to the X-Y plane)",
+          "• 75°- 80° of twist (measured about the Z axis)",
+          "• 30 - 50 cm of travel (along the Z axis)",
+          "• 35 - 50 kg payload capacity",
+          "\n",
+          "\n",
+          "\n",
+          "\n",
+          "\n",
+        ],
+        image: { src: gosselinAssemblyAnnotated, caption: "Full assembly — labeled actuators, joints, end-effector, and base platform." },
+      },
+      {
+        heading: "The approach",
+        body: [
+          "The project was broken down into the following major milestones:",
           "• Linear actuator selection",
           "• Robot simulation — 3D modeling in CAD, kinematic simulation in MATLAB",
           "• Detailed design of all components (end-effector, base, and three joint types)",
           "• Fabrication and assembly of the mechanism",
           "• Validation of rotational and translational capabilities",
         ],
-        image: { src: gosselinAssemblyAnnotated, caption: "Full assembly — labeled actuators, joints, end-effector, and base platform." },
-      },
-      {
-        heading: "Result",
-        body: [
-          "Maximum movement simulated and manually manipulated on the physical build, reached 180° of twist (>2× the goal), 90° of tilt (high end of goal range) and 40 cm of vertical travel. The maximum payload is 40 kg, determined by maximum actuator power. The completed project carried a total budget of $30k+.",
-        ],
         image: { src: gosselinAssemblyClean, caption: "Full assembly." },
       },
       {
-        heading: "Spherical Joints",
-        body: ["End effector support while allowing for rotation along 3 axes."],
+        heading: "The results",
+        body: [
+          "Maximum movement simulated and manually manipulated on the physical build, reached 180° of twist (>2x the goal), 90° of tilt (high end of goal range) and 40cm of vertical travel. The maximum payload is 40kg, determined by maximum actuator power. The completed project, shown fully assembled below, received the award for “Excellence in Design”, recognizing it as one of the department’s top projects “that exemplified stellar performance in innovation and design”.",
+          "\n",
+          "\n",
+          "Spherical Joints",
+          "End effector support while allowing for rotation along 3 axes.",
+        ],
         image: { src: gosselinSpherical },
       },
       {
@@ -141,18 +156,18 @@ export const projects: Project[] = [
   {
     slug: "powder-feeder",
     index: "02",
-    title: "High-Pressure Powder Feeder",
+    title: "Powder Feeder",
     subtitle: "High-Pressure Powder Feeder for Cold Spray Deposition",
-    role: "Mechanical Design",
-    year: "2024",
+    role: "Mechanical Design & Fabrication",
+    year: "2026",
     summary:
       "Cold spray requires introducing fine metal powder into the carrier gas at a steady, controllable rate. I designed and modeled a compact, high-pressure disk-metering powder feeder that delivers fine (~25 µm) copper powder into a ~1,000 psi carrier gas stream at a steady, controllable rate for cold spray deposition. The design combines a precision electromechanical metering drivetrain with a fully sealed pressure-vessel housing to minimize any irregularities in the flow of powder.",
     cover: powderFeederFull,
-    tags: ["Powder Handling", "Pressure Vessel", "Cold Spray", "DFM"],
+    tags: ["GEARTRAIN", "PRESSURE VESSEL", "FEA", "COLD SPRAY"],
     problem:
       "In cold spray additive manufacturing, any variation in powder feed rate, such as a pulsing or inconsistent flow, directly affects deposition efficiency, precision and final material properties. Fine copper powder (~25 µm) easily clogs, resists flow and damages bearings and electronics. The feeder also has to introduce that powder into ~1,000 psi carrier gas, meaning the entire mechanism has to double as a sealed pressure vessel without disturbing the internal flow path that actually entrains the powder.",
     approach: [],
-    approachHeading: "Design & Approach",
+    approachHeading: "Testing & Characterization",
     sections: [
       {
         heading: "Disk Metering Mechanism",
@@ -164,7 +179,7 @@ export const projects: Project[] = [
       {
         heading: "Integrated Gear-Disk Drive",
         body: [
-          "A NEMA 23 stepper motor directly drives an inline planetary gearbox, with the output shaft driving the pinion gear (via key & set-screws). The metering disk itself has teeth machined into its edge, doubling as a spur gear driven directly by the pinion. This results in a ~40:1 total reduction from motor to disk, converting the motor's native step resolution into fine, repeatable angular control at low disk speeds. Such fine powders call for tight tolerances between the faces of the housing and the metering disk. Therefore when initially validating the mechanism/assembly, there is slight uncertainty in the magnitude of friction the drivetrain must overcome to spin the disk. Maximum motor/gearbox torque was designed to remain incapable of shearing gear teeth, ensuring the failure point in the drivetrain is motor stalling, avoiding needless damage/remachining of components.",
+          "A NEMA 23 stepper motor directly drives an inline planetary gearbox, with the output shaft driving the pinion gear (via key & set-screws). The metering disk itself has teeth machined into its edge, doubling as a spur gear driven directly by the pinion. This results in a ~40:1 total reduction from motor to disk, converting the motor's native step resolution into fine, repeatable angular control at low disk speeds. Such fine powders call for tight tolerances between the faces of the housing and the metering disk. Therefore when initially validating the mechanism/assembly, there is slight uncertainty in the magnitude of friction the drivetrain must overcome to spin the disk. Maximum motor/gearbox torque was designed to remain incapable of shearing gear teeth, ensuring the failure point in the drivetrain is motor stalling, avoiding needless damage/re-machining of components.",
         ],
         image: { src: powderFeederGearbox },
       },
@@ -198,46 +213,46 @@ export const projects: Project[] = [
   {
     slug: "copper-gas-heater",
     index: "03",
-    title: "Heat Exchanger",
-    subtitle: "18 kW modular gas heater for a cold spray system",
+    title: "Gas Heater",
+    subtitle: "18 kW, 1000 psi, 450 C, modular gas heater for a cold spray system",
     role: "Mechanical Design & Thermal Analysis",
     year: "2025",
     summary:
-      "Cold spray utilizes high speed gas to accelerate metal particles to critical velocities that allow for kinetic bonding at impact with metal substrates. The gas itself is typically accelerated using a converging-diverging nozzle, in which the exit velocity is proportional to the square root of the gas inlet temperature. Therefore one of the most important components in a cold spray system is the gas heater. This heater is responsible for heating up a high flow, high pressure stream of gas. The heater utilizes 18kW of 120V electricity, to bring air from 0°C to 440°C, at 1000 psi. The design of the heater was tightly constrained by cost and manufacturability, ultimately resulting in a modular design of stacked plates clamped together with threaded rods. The total cost was ~$3.5k per heater.",
+      "Cold spray utilizes high speed gas to accelerate metal particles to critical velocities that allow for kinetic bonding at impact with metal substrates. The gas itself is typically accelerated using a converging-diverging nozzle, in which the exit velocity is proportional to the square root of the gas inlet temperature. Therefore one of the most important components in a cold spray system is the gas heater. This heater is responsible for heating up a high flow, high pressure stream of gas. The heater utilizes 18kW of 120V electricity, to bring air from 0°C to 440°C, at 1000 psi. The design of the heater was tightly constrained by cost and manufacturability, ultimately resulting in a modular design of stacked plates clamped together with threaded rods.",
     cover: copperHeFinsCad,
-    tags: ["Heat Transfer", "Pressure Sealing", "Thermal Stress", "CFD", "DFM"],
+    tags: ["THERMAL DESIGN", "PRESSURE VESSEL", "DFM", "CFD", "\n"],
     problem: "",
     approach: [],
-    approachHeading: "Process and Decisions",
+    approachHeading: "Testing & Characterization",
     sections: [
       {
         heading: "Fins",
         body: [
           "The fins pictured below are made of nickel plated copper. The copper ensures high conductivity, while the nickel plating protects from long term corrosion due to oxidation at high temperatures. The outer ring of holes is used in the final assembly for electric heat cartridges (6) and threaded rods (12 + 6 outside the disks due to nut spacing requirements). The groove is for seating the gasket, a spiral wound stainless steel gasket with a graphite filling. The internal slots operate as channels/fins for the gas to travel through. The slot width/sizing was limited by the economics of its manufacturability, and the spacing was iteratively optimized using ANSYS CFD & FEA.",
         ],
-        image: { src: copperHeFinsCad, caption: "Nickel-plated copper fin — CAD view." },
+        image: { src: copperHeFinsCad, caption: "\n" },
       },
       {
-        heading: "Fin — Manufactured",
+        heading: "\n",
         body: [],
-        image: { src: copperHeFinPhoto, caption: "Machined nickel-plated copper fin." },
+        image: { src: copperHeFinPhoto, caption: "\n" },
       },
       {
         heading: "Lids",
         body: [
           "The lids replicate the bolt, cartridge and gasket spacing of the fins, while replacing the internal fins with a cone to channel the gas to/from the entry/exit points. This geometrical alteration therefore introduced much higher stresses in the disk and required a swap to stainless steel 304. The lower thermal conductivity of the SS304 introduced higher thermal stresses, characterized by the external cartridge heating and internal gas cooling. These were quantified through ANSYS CFD & FEA in order to properly validate the design. Manifolds were also introduced to the entry and exit points to help guide the flow of air, avoiding excess pressure losses.",
         ],
-        image: { src: copperHeLidSection, caption: "SS 304 lid section — internal cone channels gas to the entry/exit ports." },
+        image: { src: copperHeLidSection, caption: "\n" },
       },
       {
-        heading: "Lid — Isometric",
+        heading: "\n",
         body: [],
-        image: { src: copperHeLidIso, caption: "Bolt, cartridge and gasket spacing mirrors the fin geometry." },
+        image: { src: copperHeLidIso, caption: "\n" },
       },
       {
-        heading: "Lid — Manifold Detail",
+        heading: "\n",
         body: [],
-        image: { src: copperHeLidDetail, caption: "Manifold integration at the gas entry/exit points to reduce pressure losses." },
+        image: { src: copperHeLidDetail, caption: "\n" },
       },
       {
         heading: "Hardware",
@@ -246,40 +261,32 @@ export const projects: Project[] = [
         ],
       },
       {
-        heading: "Sensors/controls",
+        heading: "Sensors & Controls",
         body: [
           "Heaters operated by setting a desired temperature in our control software (open source customizable software; Klipper) that utilized a PID loop driven by embedded thermistors. The thermistors were implanted in one copper plate on each of the heaters, adjacent to a cartridge. The PID then drove SSRs to control the input power supplied to the cartridges.",
         ],
       },
       {
-        heading: "Outcome and measurable results",
+        heading: "Results",
         body: [
           "The final setup consists of 4 heaters in series, resulting in a gas output reaching the target temperature of ~440°C. Across 250+ test cycles, the heaters continue to run reliably with no degradation in performance.",
         ],
-        image: { src: copperHeFinalSetup, caption: "Four heaters plumbed in series." },
+        image: { src: copperHeFinalSetup, caption: "\n" },
       },
       {
-        heading: "Final Build",
+        heading: "\n",
         body: [],
-        image: { src: copperHeFinalTwo, caption: "Heater stack in operation — threaded rods, gasketed fin/lid stack, and cartridge wiring." },
+        image: { src: copperHeFinalTwo, caption: "\n" },
       },
     ],
     specs: [
-      { label: "Copper Round Bars", value: "24× ⌀6\" × 1\", nickel plated" },
-      { label: "Stainless Steel Round Bars", value: "8× ⌀6\" × 1\"" },
-      { label: "Steel Plates", value: "8× 8.5\" × 8.5\" × 0.5\"" },
-      { label: "Threaded Rods", value: "72× 3/8\"-16 × 11\", ASTM Grade B16" },
-      { label: "Nuts", value: "288× ASTM A194 Grade B7, double nutted" },
-      { label: "Gaskets", value: "28× SS316 spiral wound, graphite filler" },
-      { label: "Entry/Exit Fittings", value: "8× SS316, 1/2\" NPT to JIC" },
-      { label: "Heat Cartridges", value: "24× 120V (12× 1000W, 12× 500W)" },
-      { label: "SSRs", value: "8× 120V DC/AC (4× 40A, 4× 15A)" },
-      { label: "Controller", value: "1× M8P Manta Control Board" },
+      {
+        label: "\n",
+        value:
+          "24x Copper Round Bars (⌀6” x 1”, nickel plated)\n8x Stainless Steel Round Bars (⌀6” x 1”)\n8x Steel Plates (8.5” x 8.5” x 0.5”)\n72x Threaded Rods (3/8\"-16 x 11”, ASTM Grade B16)\n288x Nuts (ASTM A194 Grade B7, double nutted)\n28x Gaskets (SS316 spiral wound, graphite filler)\n8x Entry/Exit Fittings (SS316, 1/2\" NPT to JIC)\n24x 120V electric heat cartridges (12x 1000W, 12x 500W)\n8x 120V DC/AC SSR (4x 40A, 4x 15A)\n1x Controller (M8P Manta Control Board)\n",
+      },
     ],
-    skills: [
-      "Thermal system design (ANSYS CFD & FEA)",
-      "Material selection (strength, conductivity & corrosion)",
-    ],
+    skills: ["\n"],
     outcome: [],
     gallery: [],
   },
@@ -289,17 +296,23 @@ export const projects: Project[] = [
     title: "Formula Electric Cooling",
     subtitle: "Cooling system characterization and optimization for UBC Formula Electric",
     role: "Thermal Systems Lead",
-    year: "2022",
+    year: "2024",
     client: "UBC Formula Electric",
     summary:
-      "Formula SAE is an international collegiate competition where student teams design and build a race car from the ground up. UBC Formula Electric designs a car to compete in the electric category. I took ownership of characterizing and optimizing the drivetrain's cooling system, responsible for keeping its two motors and two inverters within an efficient operating range.",
+      "Multidisciplinary team that designs, builds, and races a fully electric formula car from scratch against 80+ international university teams at the FSAE Electric competition. I took ownership of characterizing and optimizing the drivetrain's cooling system, responsible for keeping its two motors and two inverters within an efficient operating range.",
     cover: feRadiatorAssemblyIso,
-    tags: ["Thermal Management", "Testing & Characterization", "DFM", "FSAE Rules"],
+    tags: ["THERMAL DESIGN", "Testing & Characterization", "DFM", "FSAE Rules"],
     problem:
-      "The car's current cooling system is effective, but over-specced, with an off-the-shelf radiator considerably larger than needed. This ensures reliable cooling, but carries a real cost in weight, aerodynamic drag, and packaging flexibility. The underlying issue was that no one had measured the system's true thermal requirements, leading to hardware specified with large, conservative margins. My goal was to establish what the system genuinely required and redesign the hardware accordingly.",
+      "The car's current cooling system is effective, but over-specced, with an off-the-shelf radiator considerably larger than needed. This ensures reliable cooling, but carries a real cost in weight, aerodynamic drag, and mounting flexibility. The underlying issue was that no one had measured the system's true thermal requirements, leading to hardware specified with large, conservative margins. My goal was to establish what the system genuinely required and redesign the hardware accordingly.",
     approach: [],
-    approachHeading: "Characterizing the system through testing",
+    approachHeading: "Testing & Characterization",
     sections: [
+      {
+        heading: "\n",
+        body: [
+          "With limited starting information, I designed three tests, around equipment available through the university (dynamometer and wind tunnel), each to characterize a different relationship:",
+        ],
+      },
       {
         heading: "Motor & Inverter Temperature vs Efficiency",
         body: [
@@ -317,6 +330,11 @@ export const projects: Project[] = [
         body: [
           "The radiator used will be mounted in a wind tunnel perpendicular to the flow of air, with water run through it at a high, constant temperature. The water temperature is then measured at the radiator’s inlet and outlet, as portions of the frontal area are covered to alter surface area available for heat dissipation. This allows for the finalization of the radiator’s frontal area sizing, in which governing heat-transfer equations are used to convert bench readings into accurate predictions for competition-day air temperature and pressure.",
           "Together these define the system's real operating window, heat load, and the minimum hardware needed to serve it.",
+        ],
+      },
+      {
+        heading: "Manufacturing",
+        body: [
           "With the requirements characterized, the radiator was the component to rework, since it was the system's oversized element and the one that most directly sets cooling capacity. I produced a complete design and manufacturing plan in which:",
         ],
       },
@@ -335,12 +353,12 @@ export const projects: Project[] = [
         image: { src: feRadiatorAssemblyFront, caption: "Radiator assembly — front view." },
       },
       {
-        heading: "End Cap — Detail",
+        heading: "\n",
         body: [],
         image: { src: feRadiatorEndCap, caption: "Carbon-fibre shell with aluminium sheet-metal base and tube fittings." },
       },
       {
-        heading: "Assembly — Isometric",
+        heading: "\n",
         body: [],
         image: { src: feRadiatorAssemblyIso, caption: "Complete downsized radiator ready for packaging." },
       },
