@@ -223,7 +223,7 @@ export const projects: Project[] = [
     tags: ["THERMAL DESIGN", "PRESSURE VESSEL", "DFM", "CFD", "\n"],
     problem: "",
     approach: [],
-    approachHeading: "Design & Approach.",
+    approachHeading: "Design & Approach",
     sections: [
       {
         heading: "Fins",
