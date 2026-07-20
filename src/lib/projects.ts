@@ -308,6 +308,12 @@ export const projects: Project[] = [
     approachHeading: "Testing & Characterization",
     sections: [
       {
+        heading: "\n",
+        body: [
+          "With limited starting information, I designed three tests, around equipment available through the university (dynamometer and wind tunnel), each to characterize a different relationship:",
+        ],
+      },
+      {
         heading: "Motor & Inverter Temperature vs Efficiency",
         body: [
           "The car is run on the dyno at a constant power output, with the radiator fan running at full capacity. Once the motor & inverter temperatures reach equilibrium, the temperature and input power is recorded and used to find overall system efficiency at that specific temperature. This process is then repeated with the fans operating at 75% and 50% capacity, to find two new efficiency/temperature data points. Extrapolating these data points allows for defining the boundaries of a temperature window with proper efficiency.",
@@ -324,6 +330,11 @@ export const projects: Project[] = [
         body: [
           "The radiator used will be mounted in a wind tunnel perpendicular to the flow of air, with water run through it at a high, constant temperature. The water temperature is then measured at the radiator’s inlet and outlet, as portions of the frontal area are covered to alter surface area available for heat dissipation. This allows for the finalization of the radiator’s frontal area sizing, in which governing heat-transfer equations are used to convert bench readings into accurate predictions for competition-day air temperature and pressure.",
           "Together these define the system's real operating window, heat load, and the minimum hardware needed to serve it.",
+        ],
+      },
+      {
+        heading: "Manufacturing",
+        body: [
           "With the requirements characterized, the radiator was the component to rework, since it was the system's oversized element and the one that most directly sets cooling capacity. I produced a complete design and manufacturing plan in which:",
         ],
       },
