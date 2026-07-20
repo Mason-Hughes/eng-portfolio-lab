@@ -373,10 +373,11 @@ function SectionBlock({
   title: string;
   children: React.ReactNode;
 }) {
+  const hasLabel = label && label.trim() !== "" && label !== "\\n";
   return (
     <div className="grid md:grid-cols-12 gap-8 md:gap-12">
       <div className="md:col-span-3">
-        <p className="eyebrow mb-2">{label}</p>
+        {hasLabel && <p className="eyebrow mb-2">{label}</p>}
         <h2 className="display text-3xl md:text-4xl">
           {title.replace(/\.$/, "")}
           <span className="text-primary">.</span>
