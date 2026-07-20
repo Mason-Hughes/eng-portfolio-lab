@@ -149,7 +149,7 @@ function ProjectDetail() {
                       <span className="font-mono text-xs text-primary tabular-nums">
                         {"\n"}
                       </span>
-                      <h3 className="display text-2xl md:text-3xl">
+                      <h3 className="display text-3xl md:text-4xl">
                         {s.heading}
                         {/* Removed point */}
                       </h3>
