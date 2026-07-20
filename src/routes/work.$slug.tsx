@@ -311,7 +311,7 @@ function ProjectDetail() {
       )}
 
       {/* Skills Demonstrated */}
-      {project.skills && project.skills.length > 0 && (
+      {project.skills && project.skills.filter((s) => s && s.trim() !== "" && s !== "\\n").length > 0 && (
         <section className="relative py-24 md:py-32 border-b border-border">
           <div className="mx-auto max-w-[1400px] px-6 md:px-10">
             <SectionBlock label="\n" title="Skills Applied.">
