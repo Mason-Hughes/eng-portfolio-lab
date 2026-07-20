@@ -191,7 +191,7 @@ function ProjectDetail() {
       {project.specs.length > 0 && (
         <section className="relative py-24 md:py-32 border-b border-border bg-card/40">
           <div className="mx-auto max-w-[1400px] px-6 md:px-10">
-            <SectionBlock label="Key Specs" title="The numbers.">
+            <SectionBlock label="\n" title="BOM for the complete 4-heater setup:">
               <ul className="divide-y divide-border border-y border-border">
                 {project.specs.map((s) => (
                   <li
@@ -199,7 +199,7 @@ function ProjectDetail() {
                     className="grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-6 py-5"
                   >
                     <span className="eyebrow md:col-span-1">{s.label}</span>
-                    <span className="md:col-span-2 text-foreground/90">{s.value}</span>
+                    <span className="md:col-span-2 text-foreground/90 whitespace-pre-line">{s.value}</span>
                   </li>
                 ))}
               </ul>

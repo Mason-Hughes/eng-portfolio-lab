@@ -214,7 +214,7 @@ export const projects: Project[] = [
     slug: "copper-gas-heater",
     index: "03",
     title: "Gas Heater",
-    subtitle: "18 kW modular gas heater for a cold spray system",
+    subtitle: "18 kW, 1000 psi, 450 C, modular gas heater for a cold spray system",
     role: "Mechanical Design & Thermal Analysis",
     year: "2025",
     summary:
@@ -223,36 +223,36 @@ export const projects: Project[] = [
     tags: ["THERMAL DESIGN", "PRESSURE VESSEL", "DFM", "CFD", "\n"],
     problem: "",
     approach: [],
-    approachHeading: "Process and Decisions",
+    approachHeading: "Design & Approach.",
     sections: [
       {
         heading: "Fins",
         body: [
           "The fins pictured below are made of nickel plated copper. The copper ensures high conductivity, while the nickel plating protects from long term corrosion due to oxidation at high temperatures. The outer ring of holes is used in the final assembly for electric heat cartridges (6) and threaded rods (12 + 6 outside the disks due to nut spacing requirements). The groove is for seating the gasket, a spiral wound stainless steel gasket with a graphite filling. The internal slots operate as channels/fins for the gas to travel through. The slot width/sizing was limited by the economics of its manufacturability, and the spacing was iteratively optimized using ANSYS CFD & FEA.",
         ],
-        image: { src: copperHeFinsCad, caption: "Nickel-plated copper fin — CAD view." },
+        image: { src: copperHeFinsCad, caption: "\n" },
       },
       {
-        heading: "Fin — Manufactured",
+        heading: "\n",
         body: [],
-        image: { src: copperHeFinPhoto, caption: "Machined nickel-plated copper fin." },
+        image: { src: copperHeFinPhoto, caption: "\n" },
       },
       {
         heading: "Lids",
         body: [
           "The lids replicate the bolt, cartridge and gasket spacing of the fins, while replacing the internal fins with a cone to channel the gas to/from the entry/exit points. This geometrical alteration therefore introduced much higher stresses in the disk and required a swap to stainless steel 304. The lower thermal conductivity of the SS304 introduced higher thermal stresses, characterized by the external cartridge heating and internal gas cooling. These were quantified through ANSYS CFD & FEA in order to properly validate the design. Manifolds were also introduced to the entry and exit points to help guide the flow of air, avoiding excess pressure losses.",
         ],
-        image: { src: copperHeLidSection, caption: "SS 304 lid section — internal cone channels gas to the entry/exit ports." },
+        image: { src: copperHeLidSection, caption: "\n" },
       },
       {
-        heading: "Lid — Isometric",
+        heading: "\n",
         body: [],
-        image: { src: copperHeLidIso, caption: "Bolt, cartridge and gasket spacing mirrors the fin geometry." },
+        image: { src: copperHeLidIso, caption: "\n" },
       },
       {
-        heading: "Lid — Manifold Detail",
+        heading: "\n",
         body: [],
-        image: { src: copperHeLidDetail, caption: "Manifold integration at the gas entry/exit points to reduce pressure losses." },
+        image: { src: copperHeLidDetail, caption: "\n" },
       },
       {
         heading: "Hardware",
@@ -261,40 +261,32 @@ export const projects: Project[] = [
         ],
       },
       {
-        heading: "Sensors/controls",
+        heading: "Sensors & Controls",
         body: [
           "Heaters operated by setting a desired temperature in our control software (open source customizable software; Klipper) that utilized a PID loop driven by embedded thermistors. The thermistors were implanted in one copper plate on each of the heaters, adjacent to a cartridge. The PID then drove SSRs to control the input power supplied to the cartridges.",
         ],
       },
       {
-        heading: "Outcome and measurable results",
+        heading: "Results",
         body: [
           "The final setup consists of 4 heaters in series, resulting in a gas output reaching the target temperature of ~440°C. Across 250+ test cycles, the heaters continue to run reliably with no degradation in performance.",
         ],
-        image: { src: copperHeFinalSetup, caption: "Four heaters plumbed in series." },
+        image: { src: copperHeFinalSetup, caption: "\n" },
       },
       {
-        heading: "Final Build",
+        heading: "\n",
         body: [],
-        image: { src: copperHeFinalTwo, caption: "Heater stack in operation — threaded rods, gasketed fin/lid stack, and cartridge wiring." },
+        image: { src: copperHeFinalTwo, caption: "\n" },
       },
     ],
     specs: [
-      { label: "Copper Round Bars", value: "24× ⌀6\" × 1\", nickel plated" },
-      { label: "Stainless Steel Round Bars", value: "8× ⌀6\" × 1\"" },
-      { label: "Steel Plates", value: "8× 8.5\" × 8.5\" × 0.5\"" },
-      { label: "Threaded Rods", value: "72× 3/8\"-16 × 11\", ASTM Grade B16" },
-      { label: "Nuts", value: "288× ASTM A194 Grade B7, double nutted" },
-      { label: "Gaskets", value: "28× SS316 spiral wound, graphite filler" },
-      { label: "Entry/Exit Fittings", value: "8× SS316, 1/2\" NPT to JIC" },
-      { label: "Heat Cartridges", value: "24× 120V (12× 1000W, 12× 500W)" },
-      { label: "SSRs", value: "8× 120V DC/AC (4× 40A, 4× 15A)" },
-      { label: "Controller", value: "1× M8P Manta Control Board" },
+      {
+        label: "\n",
+        value:
+          "24x Copper Round Bars (⌀6” x 1”, nickel plated)\n8x Stainless Steel Round Bars (⌀6” x 1”)\n8x Steel Plates (8.5” x 8.5” x 0.5”)\n72x Threaded Rods (3/8\"-16 x 11”, ASTM Grade B16)\n288x Nuts (ASTM A194 Grade B7, double nutted)\n28x Gaskets (SS316 spiral wound, graphite filler)\n8x Entry/Exit Fittings (SS316, 1/2\" NPT to JIC)\n24x 120V electric heat cartridges (12x 1000W, 12x 500W)\n8x 120V DC/AC SSR (4x 40A, 4x 15A)\n1x Controller (M8P Manta Control Board)\n",
+      },
     ],
-    skills: [
-      "Thermal system design (ANSYS CFD & FEA)",
-      "Material selection (strength, conductivity & corrosion)",
-    ],
+    skills: ["\n"],
     outcome: [],
     gallery: [],
   },
