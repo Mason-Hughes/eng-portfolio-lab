@@ -147,7 +147,7 @@ function ProjectDetail() {
                   <div key={i} className="space-y-6">
                     <div className="flex items-baseline gap-4">
                       <span className="font-mono text-xs text-primary tabular-nums">
-                        {String(i + 1).padStart(2, "0")}
+                        {"\n"}
                       </span>
                       <h3 className="display text-2xl md:text-3xl">
                         {s.heading}
@@ -401,7 +401,7 @@ function SectionBlock({
         {hasLabel && <p className="eyebrow mb-2">{label}</p>}
         <h2 className="display text-3xl md:text-4xl">
           {title.replace(/\.$/, "")}
-          <span className="text-primary">.</span>
+          <span className="text-primary">for the complete 4-heater setup:</span>
         </h2>
       </div>
       <div className="md:col-span-8 md:col-start-5">{children}</div>
